@@ -1,0 +1,519 @@
+<?xml version="1.0" encoding="UTF-8"?><abs contexttype="opengear" gridaspect="false" gridheight="203" gridwidth="1304" keepalive="false" touch="true" virtualheight="203" virtualwidth="1304">
+   <meta>
+      <params>
+         <param access="1" maxlength="0" name="sony.port" oid="sony.port" type="STRING" value="20060" widget="default"/>
+         <param access="1" maxlength="0" name="sony.power.toggle" oid="sony.power.toggle" type="STRING" value="2a 53 43 54 50 4f 57 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 0a" widget="default"/>
+         <param access="1" maxlength="0" name="sony.hdmi_1" oid="sony.hdmi_1" type="STRING" value="2a 53 43 49 4e 54 50 30 30 30 30 30 30 30 31 30 30 30 30 30 30 30 31" widget="default"/>
+         <param access="1" maxlength="0" name="sony.hdmi_2" oid="sony.hdmi_2" type="STRING" value="2a 53 43 49 4e 54 50 30 30 30 30 30 30 30 31 30 30 30 30 30 30 30 32" widget="default"/>
+         <param access="1" maxlength="0" name="sony.hdmi_3" oid="sony.hdmi_3" type="STRING" value="2a 53 43 49 4e 54 50 30 30 30 30 30 30 30 31 30 30 30 30 30 30 30 33" widget="default"/>
+         <param access="1" maxlength="0" name="MCR 1" oid="MCR_1" type="STRING" value="10.1.1.1" widget="text"/>
+         <param access="1" maxlength="0" name="MCR 2" oid="MCR_2" type="STRING" value="10.1.1.2" widget="text"/>
+         <param access="1" maxlength="0" name="MCR 3" oid="MCR_3" type="STRING" value="10.1.1.3" widget="text"/>
+         <param access="1" maxlength="0" name="MCR 4" oid="MCR_4" type="STRING" value="10.1.1.4" widget="text"/>
+         <param access="1" maxlength="0" name="MCR 5" oid="MCR_5" type="STRING" value="10.1.1.5" widget="text"/>
+         <param access="1" maxlength="0" name="MCR 6" oid="MCR_6" type="STRING" value="10.1.1.6" widget="text"/>
+      </params>
+   </meta>
+   <tab bottom="0" left="0" right="0" tabposition="south" top="0">
+      <abs name="Master" virtualheight="168" virtualwidth="1302">
+         <simplegrid bottom="0" cols="4" left="0" right="0" rows="2" top="0">
+            <button buttontype="push" name="All MCR Mon">
+               <task tasktype="ogscript">
+
+
+/*! block id=1098,1090,1096,1097 !*/
+rosstalk.sendAsBytes(params.getValue('MCR_1', 0), params.getValue('sony.port', 0), params.getValue('sony.power.toggle', 0), null);
+/*! block id=1099,1091,1096,1097 !*/
+rosstalk.sendAsBytes(params.getValue('MCR_2', 0), params.getValue('sony.port', 0), params.getValue('sony.power.toggle', 0), null);
+/*! block id=1100,1092,1096,1097 !*/
+rosstalk.sendAsBytes(params.getValue('MCR_3', 0), params.getValue('sony.port', 0), params.getValue('sony.power.toggle', 0), null);
+/*! block id=1101,1093,1096,1097 !*/
+rosstalk.sendAsBytes(params.getValue('MCR_4', 0), params.getValue('sony.port', 0), params.getValue('sony.power.toggle', 0), null);
+/*! block id=1102,1094,1096,1097 !*/
+rosstalk.sendAsBytes(params.getValue('MCR_5', 0), params.getValue('sony.port', 0), params.getValue('sony.power.toggle', 0), null);
+/*! block id=1103,1095,1096,1097 !*/
+rosstalk.sendAsBytes(params.getValue('MCR_6', 0), params.getValue('sony.port', 0), params.getValue('sony.power.toggle', 0), null);
+/*!!
+ &lt;block id="1098" type="ogscript_sendtcpbytes" x="283" y="10" w="318" HOST="ID:1090" PORT="ID:1096" BYTES="ID:1097" CALLBACK="null" /&gt;
+&lt;block id="1090" type="param__top&amp;amp;MCR 1 (MCR_1)[0]" x="10" y="10" w="243" SET="" /&gt;
+&lt;block id="1096" type="param__top&amp;amp;sony.port (sony.port)[0]" x="10" y="72" w="243" SET="" /&gt;
+&lt;block id="1097" type="param__top&amp;amp;sony.power.toggle (sony.power.toggle)[0]" x="10" y="134" w="243" SET="" /&gt;
+&lt;block id="1099" type="ogscript_sendtcpbytes" x="283" y="226" w="318" HOST="ID:1091" PORT="ID:1096" BYTES="ID:1097" CALLBACK="null" /&gt;
+&lt;block id="1091" type="param__top&amp;amp;MCR 2 (MCR_2)[0]" x="10" y="226" w="243" SET="" /&gt;
+&lt;block id="1096" type="param__top&amp;amp;sony.port (sony.port)[0]" x="10" y="72" w="243" SET="" /&gt;
+&lt;block id="1097" type="param__top&amp;amp;sony.power.toggle (sony.power.toggle)[0]" x="10" y="134" w="243" SET="" /&gt;
+&lt;block id="1100" type="ogscript_sendtcpbytes" x="283" y="390" w="318" HOST="ID:1092" PORT="ID:1096" BYTES="ID:1097" CALLBACK="null" /&gt;
+&lt;block id="1092" type="param__top&amp;amp;MCR 3 (MCR_3)[0]" x="10" y="390" w="243" SET="" /&gt;
+&lt;block id="1096" type="param__top&amp;amp;sony.port (sony.port)[0]" x="10" y="72" w="243" SET="" /&gt;
+&lt;block id="1097" type="param__top&amp;amp;sony.power.toggle (sony.power.toggle)[0]" x="10" y="134" w="243" SET="" /&gt;
+&lt;block id="1101" type="ogscript_sendtcpbytes" x="283" y="554" w="318" HOST="ID:1093" PORT="ID:1096" BYTES="ID:1097" CALLBACK="null" /&gt;
+&lt;block id="1093" type="param__top&amp;amp;MCR 4 (MCR_4)[0]" x="10" y="554" w="243" SET="" /&gt;
+&lt;block id="1096" type="param__top&amp;amp;sony.port (sony.port)[0]" x="10" y="72" w="243" SET="" /&gt;
+&lt;block id="1097" type="param__top&amp;amp;sony.power.toggle (sony.power.toggle)[0]" x="10" y="134" w="243" SET="" /&gt;
+&lt;block id="1102" type="ogscript_sendtcpbytes" x="283" y="718" w="318" HOST="ID:1094" PORT="ID:1096" BYTES="ID:1097" CALLBACK="null" /&gt;
+&lt;block id="1094" type="param__top&amp;amp;MCR 5 (MCR_5)[0]" x="10" y="718" w="243" SET="" /&gt;
+&lt;block id="1096" type="param__top&amp;amp;sony.port (sony.port)[0]" x="10" y="72" w="243" SET="" /&gt;
+&lt;block id="1097" type="param__top&amp;amp;sony.power.toggle (sony.power.toggle)[0]" x="10" y="134" w="243" SET="" /&gt;
+&lt;block id="1103" type="ogscript_sendtcpbytes" x="283" y="882" w="318" HOST="ID:1095" PORT="ID:1096" BYTES="ID:1097" CALLBACK="null" /&gt;
+&lt;block id="1095" type="param__top&amp;amp;MCR 6 (MCR_6)[0]" x="10" y="882" w="243" SET="" /&gt;
+&lt;block id="1096" type="param__top&amp;amp;sony.port (sony.port)[0]" x="10" y="72" w="243" SET="" /&gt;
+&lt;block id="1097" type="param__top&amp;amp;sony.power.toggle (sony.power.toggle)[0]" x="10" y="134" w="243" SET="" /&gt;
+!!*/
+/*!!&lt;checksum&gt;094df0370f667e4cc99ca0db62065e82&lt;/checksum&gt;!!*/</task>
+            </button>
+         </simplegrid>
+      </abs>
+      <abs name="MCR" virtualheight="168" virtualwidth="1302">
+         <table bottom="0" left="0" right="0" top="0">
+            <tr>
+               <table colspan="1" fill="both" pheight="168" pwidth="992" rowspan="1" weightx="1.0" weighty="1.0">
+                  <tr>
+                     <button anchor="southeast" buttontype="push" colspan="3" fill="horizontal" name="Mon 1" pheight="38" pwidth="330" weightx="0.9" weighty="0.9">
+                        <task tasktype="ogscript">/*! block id=1051,1054,1052,1053 !*/
+rosstalk.sendAsBytes(params.getValue('MCR_1', 0), params.getValue('sony.port', 0), params.getValue('sony.power.toggle', 0), null);
+/*!!
+ &lt;block id="1051" type="ogscript_sendtcpbytes" x="283" y="10" w="318" HOST="ID:1054" PORT="ID:1052" BYTES="ID:1053" CALLBACK="null" /&gt;
+&lt;block id="1054" type="param__top&amp;amp;MCR 1 (MCR_1)[0]" x="10" y="10" w="243" SET="" /&gt;
+&lt;block id="1052" type="param__top&amp;amp;sony.port (sony.port)[0]" x="10" y="72" w="243" SET="" /&gt;
+&lt;block id="1053" type="param__top&amp;amp;sony.power.toggle (sony.power.toggle)[0]" x="10" y="134" w="243" SET="" /&gt;
+!!*/
+/*!!&lt;checksum&gt;7d9e3ee042fd8c1d31fb3429ab92f4b8&lt;/checksum&gt;!!*/</task>
+                     </button>
+                     <button buttontype="push" colspan="3" fill="horizontal" name="Mon 2" pheight="38" pwidth="330">
+                        <task tasktype="ogscript">/*! block id=1058,1055,1056,1057 !*/
+rosstalk.sendAsBytes(params.getValue('MCR_2', 0), params.getValue('sony.port', 0), params.getValue('sony.power.toggle', 0), null);
+/*!!
+ &lt;block id="1058" type="ogscript_sendtcpbytes" x="283" y="10" w="318" HOST="ID:1055" PORT="ID:1056" BYTES="ID:1057" CALLBACK="null" /&gt;
+&lt;block id="1055" type="param__top&amp;amp;MCR 2 (MCR_2)[0]" x="10" y="10" w="243" SET="" /&gt;
+&lt;block id="1056" type="param__top&amp;amp;sony.port (sony.port)[0]" x="10" y="72" w="243" SET="" /&gt;
+&lt;block id="1057" type="param__top&amp;amp;sony.power.toggle (sony.power.toggle)[0]" x="10" y="134" w="243" SET="" /&gt;
+!!*/
+/*!!&lt;checksum&gt;d3e9e9f14d348d80082ad2465352acff&lt;/checksum&gt;!!*/</task>
+                     </button>
+                     <button buttontype="push" colspan="3" fill="horizontal" name="Mon 3" pheight="38" pwidth="330">
+                        <task tasktype="ogscript">/*! block id=1062,1059,1060,1061 !*/
+rosstalk.sendAsBytes(params.getValue('MCR_3', 0), params.getValue('sony.port', 0), params.getValue('sony.power.toggle', 0), null);
+/*!!
+ &lt;block id="1062" type="ogscript_sendtcpbytes" x="283" y="10" w="318" HOST="ID:1059" PORT="ID:1060" BYTES="ID:1061" CALLBACK="null" /&gt;
+&lt;block id="1059" type="param__top&amp;amp;MCR 3 (MCR_3)[0]" x="10" y="10" w="243" SET="" /&gt;
+&lt;block id="1060" type="param__top&amp;amp;sony.port (sony.port)[0]" x="10" y="72" w="243" SET="" /&gt;
+&lt;block id="1061" type="param__top&amp;amp;sony.power.toggle (sony.power.toggle)[0]" x="10" y="134" w="243" SET="" /&gt;
+!!*/
+/*!!&lt;checksum&gt;0831f4c0e098b6a1aa1b5361c409b908&lt;/checksum&gt;!!*/</task>
+                     </button>
+                  </tr>
+                  <tr>
+                     <button buttontype="push" colspan="1" fill="both" name="HDMI 1" pheight="43" pwidth="110" rowspan="1" weightx="1.0" weighty="1.0">
+                        <task tasktype="ogscript">
+
+
+/*! block id=1107,1104,1106,1105 !*/
+rosstalk.sendAsBytes(params.getValue('MCR_1', 0), params.getValue('sony.port', 0), params.getValue('sony.hdmi_1', 0), null);
+/*!!
+ &lt;block id="1107" type="ogscript_sendtcpbytes" x="283" y="10" w="318" HOST="ID:1104" PORT="ID:1106" BYTES="ID:1105" CALLBACK="null" /&gt;
+&lt;block id="1104" type="param__top&amp;amp;MCR 1 (MCR_1)[0]" x="10" y="10" w="243" SET="" /&gt;
+&lt;block id="1106" type="param__top&amp;amp;sony.port (sony.port)[0]" x="10" y="72" w="243" SET="" /&gt;
+&lt;block id="1105" type="param__top&amp;amp;sony.hdmi_1 (sony.hdmi_1)[0]" x="10" y="134" w="243" SET="" /&gt;
+!!*/
+/*!!&lt;checksum&gt;83d216d85794e21359192a9ecca51c4c&lt;/checksum&gt;!!*/</task>
+                     </button>
+                     <button buttontype="push" colspan="1" fill="both" name="HDMI 2" pheight="43" pwidth="110" rowspan="1" weightx="1.0" weighty="1.0">
+                        <task tasktype="ogscript">
+
+
+/*! block id=1111,1112,1109,1110 !*/
+rosstalk.sendAsBytes(params.getValue('MCR_1', 0), params.getValue('sony.port', 0), params.getValue('sony.hdmi_2', 0), null);
+/*!!
+ &lt;block id="1111" type="ogscript_sendtcpbytes" x="283" y="10" w="318" HOST="ID:1112" PORT="ID:1109" BYTES="ID:1110" CALLBACK="null" /&gt;
+&lt;block id="1112" type="param__top&amp;amp;MCR 1 (MCR_1)[0]" x="10" y="10" w="243" SET="" /&gt;
+&lt;block id="1109" type="param__top&amp;amp;sony.port (sony.port)[0]" x="10" y="72" w="243" SET="" /&gt;
+&lt;block id="1110" type="param__top&amp;amp;sony.hdmi_2 (sony.hdmi_2)[0]" x="10" y="134" w="243" SET="" /&gt;
+!!*/
+/*!!&lt;checksum&gt;b150ac7932200c09997d9d25d313e1c2&lt;/checksum&gt;!!*/</task>
+                     </button>
+                     <button buttontype="push" colspan="1" fill="both" name="HDMI 3" pheight="43" pwidth="110" rowspan="1" weightx="1.0" weighty="1.0">
+                        <task tasktype="ogscript">
+
+
+/*! block id=1116,1113,1114,1115 !*/
+rosstalk.sendAsBytes(params.getValue('MCR_1', 0), params.getValue('sony.port', 0), params.getValue('sony.hdmi_3', 0), null);
+/*!!
+ &lt;block id="1116" type="ogscript_sendtcpbytes" x="283" y="10" w="318" HOST="ID:1113" PORT="ID:1114" BYTES="ID:1115" CALLBACK="null" /&gt;
+&lt;block id="1113" type="param__top&amp;amp;MCR 1 (MCR_1)[0]" x="10" y="10" w="243" SET="" /&gt;
+&lt;block id="1114" type="param__top&amp;amp;sony.port (sony.port)[0]" x="10" y="72" w="243" SET="" /&gt;
+&lt;block id="1115" type="param__top&amp;amp;sony.hdmi_3 (sony.hdmi_3)[0]" x="10" y="134" w="243" SET="" /&gt;
+!!*/
+/*!!&lt;checksum&gt;23070481637acf51c01ff3b7c7883bde&lt;/checksum&gt;!!*/</task>
+                     </button>
+                     <button buttontype="push" colspan="1" fill="both" name="HDMI 1" pheight="43" pwidth="110" rowspan="1" weightx="1.0" weighty="1.0">
+                        <task tasktype="ogscript">
+
+
+/*! block id=1120,1117,1119,1118 !*/
+rosstalk.sendAsBytes(params.getValue('MCR_2', 0), params.getValue('sony.port', 0), params.getValue('sony.hdmi_1', 0), null);
+/*!!
+ &lt;block id="1120" type="ogscript_sendtcpbytes" x="283" y="10" w="318" HOST="ID:1117" PORT="ID:1119" BYTES="ID:1118" CALLBACK="null" /&gt;
+&lt;block id="1117" type="param__top&amp;amp;MCR 2 (MCR_2)[0]" x="10" y="10" w="243" SET="" /&gt;
+&lt;block id="1119" type="param__top&amp;amp;sony.port (sony.port)[0]" x="10" y="72" w="243" SET="" /&gt;
+&lt;block id="1118" type="param__top&amp;amp;sony.hdmi_1 (sony.hdmi_1)[0]" x="10" y="134" w="243" SET="" /&gt;
+!!*/
+/*!!&lt;checksum&gt;6ee29ce850a24417c8738e28b3c22a71&lt;/checksum&gt;!!*/</task>
+                     </button>
+                     <button buttontype="push" colspan="1" fill="both" name="HDMI 2" pheight="43" pwidth="110" rowspan="1" weightx="1.0" weighty="1.0">
+                        <task tasktype="ogscript">
+
+
+/*! block id=1124,1121,1123,1122 !*/
+rosstalk.sendAsBytes(params.getValue('MCR_2', 0), params.getValue('sony.port', 0), params.getValue('sony.hdmi_2', 0), null);
+/*!!
+ &lt;block id="1124" type="ogscript_sendtcpbytes" x="283" y="10" w="318" HOST="ID:1121" PORT="ID:1123" BYTES="ID:1122" CALLBACK="null" /&gt;
+&lt;block id="1121" type="param__top&amp;amp;MCR 2 (MCR_2)[0]" x="10" y="10" w="243" SET="" /&gt;
+&lt;block id="1123" type="param__top&amp;amp;sony.port (sony.port)[0]" x="10" y="72" w="243" SET="" /&gt;
+&lt;block id="1122" type="param__top&amp;amp;sony.hdmi_2 (sony.hdmi_2)[0]" x="10" y="134" w="243" SET="" /&gt;
+!!*/
+/*!!&lt;checksum&gt;e7e700966d4018e670f07f43ce1ea18a&lt;/checksum&gt;!!*/</task>
+                     </button>
+                     <button buttontype="push" colspan="1" fill="both" name="HDMI 3" pheight="43" pwidth="110" rowspan="1" weightx="1.0" weighty="1.0">
+                        <task tasktype="ogscript">
+
+
+/*! block id=1128,1125,1127,1126 !*/
+rosstalk.sendAsBytes(params.getValue('MCR_2', 0), params.getValue('sony.port', 0), params.getValue('sony.hdmi_3', 0), null);
+/*!!
+ &lt;block id="1128" type="ogscript_sendtcpbytes" x="283" y="10" w="318" HOST="ID:1125" PORT="ID:1127" BYTES="ID:1126" CALLBACK="null" /&gt;
+&lt;block id="1125" type="param__top&amp;amp;MCR 2 (MCR_2)[0]" x="10" y="10" w="243" SET="" /&gt;
+&lt;block id="1127" type="param__top&amp;amp;sony.port (sony.port)[0]" x="10" y="72" w="243" SET="" /&gt;
+&lt;block id="1126" type="param__top&amp;amp;sony.hdmi_3 (sony.hdmi_3)[0]" x="10" y="134" w="243" SET="" /&gt;
+!!*/
+/*!!&lt;checksum&gt;91fa3755663f35acaa1b3b349a936d35&lt;/checksum&gt;!!*/</task>
+                     </button>
+                     <button buttontype="push" colspan="1" fill="both" name="HDMI 1" pheight="43" pwidth="110" rowspan="1" weightx="1.0" weighty="1.0">
+                        <task tasktype="ogscript">
+
+
+/*! block id=1132,1129,1131,1130 !*/
+rosstalk.sendAsBytes(params.getValue('MCR_3', 0), params.getValue('sony.port', 0), params.getValue('sony.hdmi_1', 0), null);
+/*!!
+ &lt;block id="1132" type="ogscript_sendtcpbytes" x="283" y="10" w="318" HOST="ID:1129" PORT="ID:1131" BYTES="ID:1130" CALLBACK="null" /&gt;
+&lt;block id="1129" type="param__top&amp;amp;MCR 3 (MCR_3)[0]" x="10" y="10" w="243" SET="" /&gt;
+&lt;block id="1131" type="param__top&amp;amp;sony.port (sony.port)[0]" x="10" y="72" w="243" SET="" /&gt;
+&lt;block id="1130" type="param__top&amp;amp;sony.hdmi_1 (sony.hdmi_1)[0]" x="10" y="134" w="243" SET="" /&gt;
+!!*/
+/*!!&lt;checksum&gt;fef8db96fbaed7feac8f473403a5d9f6&lt;/checksum&gt;!!*/</task>
+                     </button>
+                     <button buttontype="push" colspan="1" fill="both" name="HDMI 2" pheight="43" pwidth="110" rowspan="1" weightx="1.0" weighty="1.0">
+                        <task tasktype="ogscript">
+
+
+/*! block id=1136,1133,1135,1137 !*/
+rosstalk.sendAsBytes(params.getValue('MCR_3', 0), params.getValue('sony.port', 0), params.getValue('sony.hdmi_2', 0), null);
+/*!!
+ &lt;block id="1136" type="ogscript_sendtcpbytes" x="283" y="10" w="318" HOST="ID:1133" PORT="ID:1135" BYTES="ID:1137" CALLBACK="null" /&gt;
+&lt;block id="1133" type="param__top&amp;amp;MCR 3 (MCR_3)[0]" x="10" y="10" w="243" SET="" /&gt;
+&lt;block id="1135" type="param__top&amp;amp;sony.port (sony.port)[0]" x="10" y="72" w="243" SET="" /&gt;
+&lt;block id="1137" type="param__top&amp;amp;sony.hdmi_2 (sony.hdmi_2)[0]" x="10" y="134" w="243" SET="" /&gt;
+!!*/
+/*!!&lt;checksum&gt;f84d74f149149866ab03a0c7867b62d8&lt;/checksum&gt;!!*/</task>
+                     </button>
+                     <button buttontype="push" colspan="1" fill="both" name="HDMI 3" pheight="43" pwidth="110" rowspan="1" weightx="1.0" weighty="1.0">
+                        <task tasktype="ogscript">
+
+
+/*! block id=1141,1138,1139,1140 !*/
+rosstalk.sendAsBytes(params.getValue('MCR_3', 0), params.getValue('sony.port', 0), params.getValue('sony.hdmi_3', 0), null);
+/*!!
+ &lt;block id="1141" type="ogscript_sendtcpbytes" x="283" y="10" w="318" HOST="ID:1138" PORT="ID:1139" BYTES="ID:1140" CALLBACK="null" /&gt;
+&lt;block id="1138" type="param__top&amp;amp;MCR 3 (MCR_3)[0]" x="10" y="10" w="243" SET="" /&gt;
+&lt;block id="1139" type="param__top&amp;amp;sony.port (sony.port)[0]" x="10" y="72" w="243" SET="" /&gt;
+&lt;block id="1140" type="param__top&amp;amp;sony.hdmi_3 (sony.hdmi_3)[0]" x="10" y="134" w="243" SET="" /&gt;
+!!*/
+/*!!&lt;checksum&gt;7ebc168c5afbcace629d2a492cc71b12&lt;/checksum&gt;!!*/</task>
+                     </button>
+                  </tr>
+                  <tr>
+                     <button buttontype="push" colspan="3" fill="horizontal" name="Mon 4" pheight="38" pwidth="330">
+                        <task tasktype="ogscript">/*! block id=1066,1063,1064,1065 !*/
+rosstalk.sendAsBytes(params.getValue('MCR_4', 0), params.getValue('sony.port', 0), params.getValue('sony.power.toggle', 0), null);
+/*!!
+ &lt;block id="1066" type="ogscript_sendtcpbytes" x="283" y="10" w="318" HOST="ID:1063" PORT="ID:1064" BYTES="ID:1065" CALLBACK="null" /&gt;
+&lt;block id="1063" type="param__top&amp;amp;MCR 4 (MCR_4)[0]" x="10" y="10" w="243" SET="" /&gt;
+&lt;block id="1064" type="param__top&amp;amp;sony.port (sony.port)[0]" x="10" y="72" w="243" SET="" /&gt;
+&lt;block id="1065" type="param__top&amp;amp;sony.power.toggle (sony.power.toggle)[0]" x="10" y="134" w="243" SET="" /&gt;
+!!*/
+/*!!&lt;checksum&gt;baf7b1cd0f2507651fb12aa4f2eef330&lt;/checksum&gt;!!*/</task>
+                     </button>
+                     <button buttontype="push" colspan="3" fill="horizontal" name="Mon 5" pheight="38" pwidth="330">
+                        <task tasktype="ogscript">/*! block id=1071,1067,1069,1070 !*/
+rosstalk.sendAsBytes(params.getValue('MCR_5', 0), params.getValue('sony.port', 0), params.getValue('sony.power.toggle', 0), null);
+/*!!
+ &lt;block id="1071" type="ogscript_sendtcpbytes" x="283" y="10" w="318" HOST="ID:1067" PORT="ID:1069" BYTES="ID:1070" CALLBACK="null" /&gt;
+&lt;block id="1067" type="param__top&amp;amp;MCR 5 (MCR_5)[0]" x="10" y="10" w="243" SET="" /&gt;
+&lt;block id="1069" type="param__top&amp;amp;sony.port (sony.port)[0]" x="10" y="72" w="243" SET="" /&gt;
+&lt;block id="1070" type="param__top&amp;amp;sony.power.toggle (sony.power.toggle)[0]" x="10" y="134" w="243" SET="" /&gt;
+!!*/
+/*!!&lt;checksum&gt;2cd8562150ac926391d0478bbda7ec8c&lt;/checksum&gt;!!*/</task>
+                     </button>
+                     <button buttontype="push" colspan="3" fill="horizontal" name="Mon 6" pheight="38" pwidth="330">
+                        <task tasktype="ogscript">/*! block id=1075,1072,1073,1074 !*/
+rosstalk.sendAsBytes(params.getValue('MCR_6', 0), params.getValue('sony.port', 0), params.getValue('sony.power.toggle', 0), null);
+/*!!
+ &lt;block id="1075" type="ogscript_sendtcpbytes" x="283" y="10" w="318" HOST="ID:1072" PORT="ID:1073" BYTES="ID:1074" CALLBACK="null" /&gt;
+&lt;block id="1072" type="param__top&amp;amp;MCR 6 (MCR_6)[0]" x="10" y="10" w="243" SET="" /&gt;
+&lt;block id="1073" type="param__top&amp;amp;sony.port (sony.port)[0]" x="10" y="72" w="243" SET="" /&gt;
+&lt;block id="1074" type="param__top&amp;amp;sony.power.toggle (sony.power.toggle)[0]" x="10" y="134" w="243" SET="" /&gt;
+!!*/
+/*!!&lt;checksum&gt;1b5078d4e204561664ea971dd14d524c&lt;/checksum&gt;!!*/</task>
+                     </button>
+                  </tr>
+                  <tr>
+                     <button buttontype="push" colspan="1" fill="both" name="HDMI 1" pheight="43" pwidth="110" rowspan="1" weightx="1.0" weighty="1.0">
+                        <task tasktype="ogscript">/*! block id=1145,1142,1144,1143 !*/
+rosstalk.sendAsBytes(params.getValue('MCR_4', 0), params.getValue('sony.port', 0), params.getValue('sony.hdmi_1', 0), null);
+/*!!
+ &lt;block id="1145" type="ogscript_sendtcpbytes" x="283" y="10" w="318" HOST="ID:1142" PORT="ID:1144" BYTES="ID:1143" CALLBACK="null" /&gt;
+&lt;block id="1142" type="param__top&amp;amp;MCR 4 (MCR_4)[0]" x="10" y="10" w="243" SET="" /&gt;
+&lt;block id="1144" type="param__top&amp;amp;sony.port (sony.port)[0]" x="10" y="72" w="243" SET="" /&gt;
+&lt;block id="1143" type="param__top&amp;amp;sony.hdmi_1 (sony.hdmi_1)[0]" x="10" y="134" w="243" SET="" /&gt;
+!!*/
+/*!!&lt;checksum&gt;e9524154a32363435fad2011a8bca692&lt;/checksum&gt;!!*/</task>
+                     </button>
+                     <button buttontype="push" colspan="1" fill="both" name="HDMI 2" pheight="43" pwidth="110" rowspan="1" weightx="1.0" weighty="1.0">
+                        <task tasktype="ogscript">
+
+
+/*! block id=1149,1146,1148,1147 !*/
+rosstalk.sendAsBytes(params.getValue('MCR_4', 0), params.getValue('sony.port', 0), params.getValue('sony.hdmi_2', 0), null);
+/*!!
+ &lt;block id="1149" type="ogscript_sendtcpbytes" x="539" y="105" w="318" HOST="ID:1146" PORT="ID:1148" BYTES="ID:1147" CALLBACK="null" /&gt;
+&lt;block id="1146" type="param__top&amp;amp;MCR 4 (MCR_4)[0]" x="60" y="44" w="243" SET="" /&gt;
+&lt;block id="1148" type="param__top&amp;amp;sony.port (sony.port)[0]" x="123" y="176" w="243" SET="" /&gt;
+&lt;block id="1147" type="param__top&amp;amp;sony.hdmi_2 (sony.hdmi_2)[0]" x="107" y="287" w="243" SET="" /&gt;
+!!*/
+/*!!&lt;checksum&gt;9b55beeadf125fa08c4a12e2717ff6e5&lt;/checksum&gt;!!*/</task>
+                     </button>
+                     <button buttontype="push" colspan="1" fill="both" name="HDMI 3" pheight="43" pwidth="110" rowspan="1" weightx="1.0" weighty="1.0">
+                        <task tasktype="ogscript">
+
+
+/*! block id=1153,1150,1152,1151 !*/
+rosstalk.sendAsBytes(params.getValue('MCR_4', 0), params.getValue('sony.port', 0), params.getValue('sony.hdmi_3', 0), null);
+/*!!
+ &lt;block id="1153" type="ogscript_sendtcpbytes" x="283" y="10" w="318" HOST="ID:1150" PORT="ID:1152" BYTES="ID:1151" CALLBACK="null" /&gt;
+&lt;block id="1150" type="param__top&amp;amp;MCR 4 (MCR_4)[0]" x="10" y="10" w="243" SET="" /&gt;
+&lt;block id="1152" type="param__top&amp;amp;sony.port (sony.port)[0]" x="10" y="72" w="243" SET="" /&gt;
+&lt;block id="1151" type="param__top&amp;amp;sony.hdmi_3 (sony.hdmi_3)[0]" x="10" y="134" w="243" SET="" /&gt;
+!!*/
+/*!!&lt;checksum&gt;6d649ab6a5eb6789fa5abe062a4268f6&lt;/checksum&gt;!!*/</task>
+                     </button>
+                     <button buttontype="push" colspan="1" fill="both" name="HDMI 1" pheight="43" pwidth="110" rowspan="1" weightx="1.0" weighty="1.0">
+                        <task tasktype="ogscript">
+
+
+/*! block id=1157,1154,1156,1155 !*/
+rosstalk.sendAsBytes(params.getValue('MCR_5', 0), params.getValue('sony.port', 0), params.getValue('sony.hdmi_1', 0), null);
+/*!!
+ &lt;block id="1157" type="ogscript_sendtcpbytes" x="283" y="10" w="318" HOST="ID:1154" PORT="ID:1156" BYTES="ID:1155" CALLBACK="null" /&gt;
+&lt;block id="1154" type="param__top&amp;amp;MCR 5 (MCR_5)[0]" x="10" y="10" w="243" SET="" /&gt;
+&lt;block id="1156" type="param__top&amp;amp;sony.port (sony.port)[0]" x="10" y="72" w="243" SET="" /&gt;
+&lt;block id="1155" type="param__top&amp;amp;sony.hdmi_1 (sony.hdmi_1)[0]" x="10" y="134" w="243" SET="" /&gt;
+!!*/
+/*!!&lt;checksum&gt;4c2c10991068527ec3694e7beb10d2a7&lt;/checksum&gt;!!*/</task>
+                     </button>
+                     <button buttontype="push" colspan="1" fill="both" name="HDMI 2" pheight="43" pwidth="110" rowspan="1" weightx="1.0" weighty="1.0">
+                        <task tasktype="ogscript">
+
+
+/*! block id=1161,1158,1160,1162 !*/
+rosstalk.sendAsBytes(params.getValue('MCR_5', 0), params.getValue('sony.port', 0), params.getValue('sony.hdmi_2', 0), null);
+/*!!
+ &lt;block id="1161" type="ogscript_sendtcpbytes" x="283" y="10" w="318" HOST="ID:1158" PORT="ID:1160" BYTES="ID:1162" CALLBACK="null" /&gt;
+&lt;block id="1158" type="param__top&amp;amp;MCR 5 (MCR_5)[0]" x="10" y="10" w="243" SET="" /&gt;
+&lt;block id="1160" type="param__top&amp;amp;sony.port (sony.port)[0]" x="10" y="72" w="243" SET="" /&gt;
+&lt;block id="1162" type="param__top&amp;amp;sony.hdmi_2 (sony.hdmi_2)[0]" x="10" y="134" w="243" SET="" /&gt;
+!!*/
+/*!!&lt;checksum&gt;61ffe7bcc6239215a430c67c998f7cdd&lt;/checksum&gt;!!*/</task>
+                     </button>
+                     <button buttontype="push" colspan="1" fill="both" name="HDMI 3" pheight="43" pwidth="110" rowspan="1" weightx="1.0" weighty="1.0">
+                        <task tasktype="ogscript">
+
+
+/*! block id=1166,1163,1164,1165 !*/
+rosstalk.sendAsBytes(params.getValue('MCR_5', 0), params.getValue('sony.port', 0), params.getValue('sony.hdmi_3', 0), null);
+/*!!
+ &lt;block id="1166" type="ogscript_sendtcpbytes" x="283" y="10" w="318" HOST="ID:1163" PORT="ID:1164" BYTES="ID:1165" CALLBACK="null" /&gt;
+&lt;block id="1163" type="param__top&amp;amp;MCR 5 (MCR_5)[0]" x="10" y="10" w="243" SET="" /&gt;
+&lt;block id="1164" type="param__top&amp;amp;sony.port (sony.port)[0]" x="10" y="72" w="243" SET="" /&gt;
+&lt;block id="1165" type="param__top&amp;amp;sony.hdmi_3 (sony.hdmi_3)[0]" x="10" y="134" w="243" SET="" /&gt;
+!!*/
+/*!!&lt;checksum&gt;8fc639e7723bdcd5cf33ec5ddb24b035&lt;/checksum&gt;!!*/</task>
+                     </button>
+                     <button buttontype="push" colspan="1" fill="both" name="HDMI 1" pheight="43" pwidth="110" rowspan="1" weightx="1.0" weighty="1.0">
+                        <task tasktype="ogscript">
+
+
+/*! block id=1170,1167,1169,1168 !*/
+rosstalk.sendAsBytes(params.getValue('MCR_6', 0), params.getValue('sony.port', 0), params.getValue('sony.hdmi_1', 0), null);
+/*!!
+ &lt;block id="1170" type="ogscript_sendtcpbytes" x="283" y="10" w="318" HOST="ID:1167" PORT="ID:1169" BYTES="ID:1168" CALLBACK="null" /&gt;
+&lt;block id="1167" type="param__top&amp;amp;MCR 6 (MCR_6)[0]" x="10" y="10" w="243" SET="" /&gt;
+&lt;block id="1169" type="param__top&amp;amp;sony.port (sony.port)[0]" x="10" y="72" w="243" SET="" /&gt;
+&lt;block id="1168" type="param__top&amp;amp;sony.hdmi_1 (sony.hdmi_1)[0]" x="10" y="134" w="243" SET="" /&gt;
+!!*/
+/*!!&lt;checksum&gt;729cc529674b5338def2315544c6d7f1&lt;/checksum&gt;!!*/</task>
+                     </button>
+                     <button buttontype="push" colspan="1" fill="both" name="HDMI 2" pheight="43" pwidth="110" rowspan="1" weightx="1.0" weighty="1.0">
+                        <task tasktype="ogscript">
+
+
+/*! block id=1174,1171,1173,1172 !*/
+rosstalk.sendAsBytes(params.getValue('MCR_6', 0), params.getValue('sony.port', 0), params.getValue('sony.hdmi_2', 0), null);
+/*!!
+ &lt;block id="1174" type="ogscript_sendtcpbytes" x="283" y="10" w="318" HOST="ID:1171" PORT="ID:1173" BYTES="ID:1172" CALLBACK="null" /&gt;
+&lt;block id="1171" type="param__top&amp;amp;MCR 6 (MCR_6)[0]" x="10" y="10" w="243" SET="" /&gt;
+&lt;block id="1173" type="param__top&amp;amp;sony.port (sony.port)[0]" x="10" y="72" w="243" SET="" /&gt;
+&lt;block id="1172" type="param__top&amp;amp;sony.hdmi_2 (sony.hdmi_2)[0]" x="10" y="134" w="243" SET="" /&gt;
+!!*/
+/*!!&lt;checksum&gt;1d7082c58f841c4046a17bd4d75138fb&lt;/checksum&gt;!!*/</task>
+                     </button>
+                     <button buttontype="push" colspan="1" fill="both" name="HDMI 3" pheight="43" pwidth="110" rowspan="1" weightx="1.0" weighty="1.0">
+                        <task tasktype="ogscript">
+
+
+/*! block id=1178,1175,1177,1176 !*/
+rosstalk.sendAsBytes(params.getValue('MCR_6', 0), params.getValue('sony.port', 0), params.getValue('sony.hdmi_3', 0), null);
+/*!!
+ &lt;block id="1178" type="ogscript_sendtcpbytes" x="283" y="10" w="318" HOST="ID:1175" PORT="ID:1177" BYTES="ID:1176" CALLBACK="null" /&gt;
+&lt;block id="1175" type="param__top&amp;amp;MCR 6 (MCR_6)[0]" x="10" y="10" w="243" SET="" /&gt;
+&lt;block id="1177" type="param__top&amp;amp;sony.port (sony.port)[0]" x="10" y="72" w="243" SET="" /&gt;
+&lt;block id="1176" type="param__top&amp;amp;sony.hdmi_3 (sony.hdmi_3)[0]" x="10" y="134" w="243" SET="" /&gt;
+!!*/
+/*!!&lt;checksum&gt;12e619e35546e896f2ebf93a10d5b41a&lt;/checksum&gt;!!*/</task>
+                     </button>
+                  </tr>
+               </table>
+               <button buttontype="push" colspan="1" fill="both" name="All MCR Mon" pheight="168" pwidth="309" rowspan="1" weightx="0.50" weighty="1.0">
+                  <task tasktype="ogscript">/*! block id=1088,1080,1082,1083 !*/
+rosstalk.sendAsBytes(params.getValue('MCR_5', 0), params.getValue('sony.port', 0), params.getValue('sony.power.toggle', 0), null);
+/*! block id=1089,1081,1082,1083 !*/
+rosstalk.sendAsBytes(params.getValue('MCR_6', 0), params.getValue('sony.port', 0), params.getValue('sony.power.toggle', 0), null);
+/*! block id=1084,1076,1082,1083 !*/
+rosstalk.sendAsBytes(params.getValue('MCR_1', 0), params.getValue('sony.port', 0), params.getValue('sony.power.toggle', 0), null);
+/*! block id=1085,1077,1082,1083 !*/
+rosstalk.sendAsBytes(params.getValue('MCR_2', 0), params.getValue('sony.port', 0), params.getValue('sony.power.toggle', 0), null);
+/*! block id=1086,1078,1082 !*/
+rosstalk.sendAsBytes(params.getValue('MCR_3', 0), params.getValue('sony.port', 0), "", null);
+/*! block id=1087,1079,1082,1083 !*/
+rosstalk.sendAsBytes(params.getValue('MCR_4', 0), params.getValue('sony.port', 0), params.getValue('sony.power.toggle', 0), null);
+/*!!
+ &lt;block id="1088" type="ogscript_sendtcpbytes" x="283" y="10" w="318" HOST="ID:1080" PORT="ID:1082" BYTES="ID:1083" CALLBACK="null" /&gt;
+&lt;block id="1080" type="param__top&amp;amp;MCR 5 (MCR_5)[0]" x="10" y="10" w="243" SET="" /&gt;
+&lt;block id="1082" type="param__top&amp;amp;sony.port (sony.port)[0]" x="10" y="72" w="243" SET="" /&gt;
+&lt;block id="1083" type="param__top&amp;amp;sony.power.toggle (sony.power.toggle)[0]" x="10" y="134" w="243" SET="" /&gt;
+&lt;block id="1089" type="ogscript_sendtcpbytes" x="283" y="226" w="318" HOST="ID:1081" PORT="ID:1082" BYTES="ID:1083" CALLBACK="null" /&gt;
+&lt;block id="1081" type="param__top&amp;amp;MCR 6 (MCR_6)[0]" x="10" y="226" w="243" SET="" /&gt;
+&lt;block id="1082" type="param__top&amp;amp;sony.port (sony.port)[0]" x="10" y="72" w="243" SET="" /&gt;
+&lt;block id="1083" type="param__top&amp;amp;sony.power.toggle (sony.power.toggle)[0]" x="10" y="134" w="243" SET="" /&gt;
+&lt;block id="1084" type="ogscript_sendtcpbytes" x="283" y="390" w="318" HOST="ID:1076" PORT="ID:1082" BYTES="ID:1083" CALLBACK="null" /&gt;
+&lt;block id="1076" type="param__top&amp;amp;MCR 1 (MCR_1)[0]" x="10" y="390" w="243" SET="" /&gt;
+&lt;block id="1082" type="param__top&amp;amp;sony.port (sony.port)[0]" x="10" y="72" w="243" SET="" /&gt;
+&lt;block id="1083" type="param__top&amp;amp;sony.power.toggle (sony.power.toggle)[0]" x="10" y="134" w="243" SET="" /&gt;
+&lt;block id="1085" type="ogscript_sendtcpbytes" x="283" y="554" w="318" HOST="ID:1077" PORT="ID:1082" BYTES="ID:1083" CALLBACK="null" /&gt;
+&lt;block id="1077" type="param__top&amp;amp;MCR 2 (MCR_2)[0]" x="10" y="554" w="243" SET="" /&gt;
+&lt;block id="1082" type="param__top&amp;amp;sony.port (sony.port)[0]" x="10" y="72" w="243" SET="" /&gt;
+&lt;block id="1083" type="param__top&amp;amp;sony.power.toggle (sony.power.toggle)[0]" x="10" y="134" w="243" SET="" /&gt;
+&lt;block id="1086" type="ogscript_sendtcpbytes" x="283" y="718" w="318" HOST="ID:1078" PORT="ID:1082" BYTES="" CALLBACK="null" /&gt;
+&lt;block id="1078" type="param__top&amp;amp;MCR 3 (MCR_3)[0]" x="10" y="718" w="243" SET="" /&gt;
+&lt;block id="1082" type="param__top&amp;amp;sony.port (sony.port)[0]" x="10" y="72" w="243" SET="" /&gt;
+&lt;block id="1087" type="ogscript_sendtcpbytes" x="283" y="882" w="318" HOST="ID:1079" PORT="ID:1082" BYTES="ID:1083" CALLBACK="null" /&gt;
+&lt;block id="1079" type="param__top&amp;amp;MCR 4 (MCR_4)[0]" x="10" y="882" w="243" SET="" /&gt;
+&lt;block id="1082" type="param__top&amp;amp;sony.port (sony.port)[0]" x="10" y="72" w="243" SET="" /&gt;
+&lt;block id="1083" type="param__top&amp;amp;sony.power.toggle (sony.power.toggle)[0]" x="10" y="134" w="243" SET="" /&gt;
+!!*/
+/*!!&lt;checksum&gt;719b5673dadc3a31d5dfcd1442ea0171&lt;/checksum&gt;!!*/</task>
+               </button>
+            </tr>
+         </table>
+      </abs>
+      <abs name="CR 1" virtualheight="168" virtualwidth="1302">
+         <table bottom="0" left="0" right="0" top="0">
+            <tr>
+               <table colspan="1" fill="both" pheight="168" pwidth="871" rowspan="1" weightx="1.0" weighty="1.0">
+                  <tr>
+                     <dropspot colspan="1" fill="both" pheight="42" pwidth="290" rowspan="1" weightx="1.0" weighty="1.0"/>
+                     <dropspot colspan="1" fill="both" pheight="42" pwidth="290" rowspan="1" weightx="1.0" weighty="1.0"/>
+                     <dropspot colspan="1" fill="both" pheight="42" pwidth="290" rowspan="1" weightx="1.0" weighty="1.0"/>
+                  </tr>
+                  <tr>
+                     <dropspot colspan="1" fill="both" pheight="42" pwidth="290" rowspan="1" weightx="1.0" weighty="1.0"/>
+                     <dropspot colspan="1" fill="both" pheight="42" pwidth="290" rowspan="1" weightx="1.0" weighty="1.0"/>
+                     <dropspot colspan="1" fill="both" pheight="42" pwidth="290" rowspan="1" weightx="1.0" weighty="1.0"/>
+                  </tr>
+                  <tr>
+                     <dropspot colspan="1" fill="both" pheight="42" pwidth="290" rowspan="1" weightx="1.0" weighty="1.0"/>
+                     <dropspot colspan="1" fill="both" pheight="42" pwidth="290" rowspan="1" weightx="1.0" weighty="1.0"/>
+                     <dropspot colspan="1" fill="both" pheight="42" pwidth="290" rowspan="1" weightx="1.0" weighty="1.0"/>
+                  </tr>
+                  <tr>
+                     <dropspot colspan="1" fill="both" pheight="42" pwidth="290" rowspan="1" weightx="1.0" weighty="1.0"/>
+                     <dropspot colspan="1" fill="both" pheight="42" pwidth="290" rowspan="1" weightx="1.0" weighty="1.0"/>
+                     <dropspot colspan="1" fill="both" pheight="42" pwidth="290" rowspan="1" weightx="1.0" weighty="1.0"/>
+                  </tr>
+               </table>
+               <dropspot colspan="1" fill="both" pheight="168" pwidth="430" rowspan="1" weightx="0.5" weighty="1.0"/>
+            </tr>
+         </table>
+      </abs>
+      <abs name="CR 2" virtualheight="168" virtualwidth="1302"/>
+      <abs name="CR 3" virtualheight="168" virtualwidth="1302"/>
+      <abs name="CR 4" virtualheight="168" virtualwidth="1302"/>
+      <abs name="CR 5" virtualheight="168" virtualwidth="1302"/>
+      <abs name="CR 6" virtualheight="168" virtualwidth="1302"/>
+      <abs name="CR 7" virtualheight="168" virtualwidth="1302"/>
+      <abs name="Setup" virtualheight="168" virtualwidth="1302">
+         <table bottom="0" left="0" right="0" top="0">
+            <tr>
+               <label colspan="1" fill="both" name="MCR 1" pheight="56" pwidth="89" rowspan="1" style="txt-align:center;" weightx="0.5" weighty="1.0"/>
+               <param anchor="center" colspan="1" fill="none" name="" oid="MCR_1" pheight="22" pwidth="75" rowspan="1" style="txt-align:north;" weightx="0.5" weighty="0.5" width="75"/>
+               <label colspan="1" fill="both" name="MCR 4" pheight="56" pwidth="89" rowspan="1" style="txt-align:center;" weightx="0.5" weighty="1.0"/>
+               <param anchor="center" colspan="1" fill="none" name="" oid="MCR_4" pheight="22" pwidth="75" rowspan="1" style="txt-align:north;" weightx="0.5" weighty="0.5" width="75"/>
+               <dropspot colspan="1" fill="both" pheight="56" pwidth="109" rowspan="1" weightx="1.0" weighty="1.0"/>
+               <dropspot colspan="1" fill="both" pheight="56" pwidth="109" rowspan="1" weightx="1.0" weighty="1.0"/>
+               <dropspot colspan="1" fill="both" pheight="56" pwidth="109" rowspan="1" weightx="1.0" weighty="1.0"/>
+               <dropspot colspan="1" fill="both" pheight="56" pwidth="109" rowspan="1" weightx="1.0" weighty="1.0"/>
+               <dropspot colspan="1" fill="both" pheight="56" pwidth="109" rowspan="1" weightx="1.0" weighty="1.0"/>
+               <dropspot colspan="1" fill="both" pheight="56" pwidth="109" rowspan="1" weightx="1.0" weighty="1.0"/>
+               <dropspot colspan="1" fill="both" pheight="56" pwidth="109" rowspan="1" weightx="1.0" weighty="1.0"/>
+               <dropspot colspan="1" fill="both" pheight="56" pwidth="109" rowspan="1" weightx="1.0" weighty="1.0"/>
+            </tr>
+            <tr>
+               <label colspan="1" fill="both" name="MCR 2" pheight="56" pwidth="89" rowspan="1" style="txt-align:center;" weightx="0.5" weighty="1.0"/>
+               <param anchor="center" colspan="1" fill="none" name="" oid="MCR_2" pheight="22" pwidth="75" rowspan="1" style="txt-align:north;" weightx="0.5" weighty="0.5" width="75"/>
+               <label colspan="1" fill="both" name="MCR 5" pheight="56" pwidth="89" rowspan="1" style="txt-align:center;" weightx="0.5" weighty="1.0"/>
+               <param anchor="center" colspan="1" fill="none" name="" oid="MCR_5" pheight="22" pwidth="75" rowspan="1" style="txt-align:north;" weightx="0.5" weighty="0.5" width="75"/>
+               <dropspot colspan="1" fill="both" pheight="56" pwidth="109" rowspan="1" weightx="1.0" weighty="1.0"/>
+               <dropspot colspan="1" fill="both" pheight="56" pwidth="109" rowspan="1" weightx="1.0" weighty="1.0"/>
+               <dropspot colspan="1" fill="both" pheight="56" pwidth="109" rowspan="1" weightx="1.0" weighty="1.0"/>
+               <dropspot colspan="1" fill="both" pheight="56" pwidth="109" rowspan="1" weightx="1.0" weighty="1.0"/>
+               <dropspot colspan="1" fill="both" pheight="56" pwidth="109" rowspan="1" weightx="1.0" weighty="1.0"/>
+               <dropspot colspan="1" fill="both" pheight="56" pwidth="109" rowspan="1" weightx="1.0" weighty="1.0"/>
+               <dropspot colspan="1" fill="both" pheight="56" pwidth="109" rowspan="1" weightx="1.0" weighty="1.0"/>
+               <dropspot colspan="1" fill="both" pheight="56" pwidth="109" rowspan="1" weightx="1.0" weighty="1.0"/>
+            </tr>
+            <tr>
+               <label colspan="1" fill="both" name="MCR 3" pheight="56" pwidth="89" rowspan="1" style="txt-align:center;" weightx="0.5" weighty="1.0"/>
+               <param anchor="center" colspan="1" fill="none" name="" oid="MCR_3" pheight="22" pwidth="75" rowspan="1" style="txt-align:north;" weightx="0.5" weighty="0.5" width="75"/>
+               <label colspan="1" fill="both" name="MCR 6" pheight="56" pwidth="89" rowspan="1" style="txt-align:center;" weightx="0.5" weighty="1.0"/>
+               <param anchor="center" colspan="1" fill="none" name="" oid="MCR_6" pheight="22" pwidth="75" rowspan="1" style="txt-align:north;" weightx="0.5" weighty="0.5" width="75"/>
+               <dropspot colspan="1" fill="both" pheight="56" pwidth="109" rowspan="1" weightx="1.0" weighty="1.0"/>
+               <dropspot colspan="1" fill="both" pheight="56" pwidth="109" rowspan="1" weightx="1.0" weighty="1.0"/>
+               <dropspot colspan="1" fill="both" pheight="56" pwidth="109" rowspan="1" weightx="1.0" weighty="1.0"/>
+               <dropspot colspan="1" fill="both" pheight="56" pwidth="109" rowspan="1" weightx="1.0" weighty="1.0"/>
+               <dropspot colspan="1" fill="both" pheight="56" pwidth="109" rowspan="1" weightx="1.0" weighty="1.0"/>
+               <dropspot colspan="1" fill="both" pheight="56" pwidth="109" rowspan="1" weightx="1.0" weighty="1.0"/>
+               <dropspot colspan="1" fill="both" pheight="56" pwidth="109" rowspan="1" weightx="1.0" weighty="1.0"/>
+               <dropspot colspan="1" fill="both" pheight="56" pwidth="109" rowspan="1" weightx="1.0" weighty="1.0"/>
+            </tr>
+         </table>
+      </abs>
+   </tab>
+</abs>

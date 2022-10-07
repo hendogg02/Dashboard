@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="UTF-8"?><abs contexttype="opengear" id="_top" style="">
+   <meta>
+      <params>
+         <param access="1" constraint="0.0;100.0;0.0;100.0;1.0" constrainttype="FLOAT_STEP_RANGE" name="Brightness Fader" oid="brightFader" precision="0" type="FLOAT32" value="25.0" widget="slider-vertical"/>
+         <param access="1" maxlength="0" name="Preset 1 Name" oid="Preset_1_Name" type="STRING" value="Preset 1 Name" widget="text"/>
+         <param access="1" maxlength="0" name="Preset 2 Name" oid="Preset_2_Name" type="STRING" value="Preset Normal" widget="text"/>
+         <param access="1" maxlength="0" name="Preset 3 Name" oid="Preset_3_Name" type="STRING" value="Preset 3 PiP" widget="text"/>
+         <param access="1" maxlength="0" name="Preset 4 Name" oid="Preset_4_Name" type="STRING" value="Preset 4 PiP Full Size" widget="text"/>
+         <param access="1" maxlength="0" name="Preset 5 Name" oid="Preset_5_Name" type="STRING" value="Preset 5 Name" widget="text"/>
+         <param access="1" maxlength="0" name="Preset 6 Name" oid="Preset_6_Name" type="STRING" value="Preset 6 Name" widget="text"/>
+         <param access="1" maxlength="0" name="Preset 7 Name" oid="Preset_7_Name" type="STRING" value="Preset 7 Name" widget="text"/>
+         <param access="1" maxlength="0" name="Preset 8 Name" oid="Preset_8_Name" type="STRING" value="Preset 8 Name" widget="text"/>
+         <param access="1" maxlength="0" name="Preset 9 Name" oid="Preset_9_Name" type="STRING" value="Preset 9 Name" widget="text"/>
+         <param access="1" maxlength="0" name="Preset 10 Name" oid="Preset_10_Name" type="STRING" value="Preset 10 Name" widget="text"/>
+         <param access="1" constrainttype="INT_NULL" name="IP Address" oid="IP_Address" precision="0" type="INT32" value="174526575" widget="ip"/>
+         <param access="1" constrainttype="INT_NULL" name="Port Number" oid="Port_Number" precision="0" type="INT32" value="5200" widget="text"/>
+         <param access="1" maxlength="0" name="Preset Response" oid="presetResponse" type="STRING" value="AA 55 00 00 00 FE 00 00 00 00 01 00 00 01 51 13 00 00 B9 56" widget="default"/>
+         <param access="1" constraintstrict="false" constrainttype="STRING_STRING_CHOICE" maxlength="0" name="Brightness Values" oid="brightValues" precision="0" type="STRING_ARRAY" widget="default">
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 00 55 5a</value>/* 0%
+ */<value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 03 58 5a</value>/* 1% 
+ */<value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 05 5a 5a</value>/* 2% 
+ */<value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 08 5d 5a</value>/* 3% 
+ */<value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 0b 60 5a</value>/* 4% 
+ */<value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 0d 62 5a</value>/* 5% 
+ */<value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 0f 64 5a</value>/* 6% 
+ */<value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 12 67 5a</value>/* 7% 
+ */<value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 14 69 5a</value>/* 8%
+ */<value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 17 6c 5a</value>/* 9%
+ */<value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 1a 6f 5a</value>/* 10%
+ */<value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 1c 71 5a</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 1e 73 5a</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 21 76 5a</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 23 78 5a</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 26 7b 5a</value>/* 15%
+ */<value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 2a 7f 5a</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 2c 81 5a</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 2e 83 5a</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 31 86 5a</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 33 88 5a</value>/* 20%
+ */<value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 36 8b 5a</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 39 8e 5a</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 3b 90 5a</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 3d 92 5a</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 40 95 5a</value>/* 25%
+ */<value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 43 98 5a</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 45 9a 5a</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 48 9d 5a</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 4b a0 5a</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 4d a2 5a</value>/* 30%
+ */<value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 4f a4 5a</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 52 a7 5a</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 55 aa 5a</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 57 ac 5a</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 5a af 5a</value>/* 35%
+ */<value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 5c b1 5a</value>/* 36%
+ */<value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 5e b3 5a</value>/* 37%
+ */<value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 62 b7 5a</value>/* 38%
+ */<value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 64 b9 5a</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 67 bc 5a</value>/* 40%
+ */<value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 69 be 5a</value>/* 41%
+ */<value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 6b c0 5a</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 6e c3 5a</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 71 c6 5a</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 73 c8 5a</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 76 cb 5a</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 79 ce 5a</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 7b d0 5a</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 7d d2 5a</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 80 d5 5a</value>/* 50%
+ */<value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 82 d7 5a</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 85 da 5a</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 88 dd 5a</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 8a df 5a</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 8c e1 5a</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 8f e4 5a</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 91 e6 5a</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 94 e9 5a</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 97 ec 5a</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 99 ee 5a</value>/* 60%
+ */<value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 9b f0 5a</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 9e f3 5a</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 a0 f5 5a</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 a3 f8 5a</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 a6 fb 5a</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 a8 fd 5a</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 ac 01 5b</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 ae 03 5b</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 b1 06 5b</value>/* 69%
+ */<value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 b3 08 5b</value>/* 70%
+ */<value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 b6 0b 5b</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 b8 0d 5b</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 ba 0f 5b</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 bd 12 5b</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 c0 15 5b</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 c2 17 5b</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 c5 1a 5b</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 c7 1c 5b</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 c9 1e 5b</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 cd 22 5b</value>/* 80%
+ */<value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 cf 24 5b</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 d2 27 5b</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 d4 29 5b</value>/* 83%
+ */<value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 d7 2c 5b</value>/* 84%
+ */<value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 d9 2e 5b</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 dc 31 5b</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 de 33 5b</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 e1 36 5b</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 e4 39 5b</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 e6 3b 5b</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 e8 3d 5b</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 eb 40 5b</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 ed 42 5b</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 f0 45 5b</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 f3 48 5b</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 f5 4a 5b</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 f7 4c 5b</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 fa 4f 5b</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 fd 52 5b</value>
+            <value>55 aa 00 00 fe ff 01 ff ff ff 01 00 01 00 00 02 01 00 ff 54 5b</value>
+            <constraint key="0">0</constraint>
+            <constraint key="1">1</constraint>
+            <constraint key="2">2</constraint>
+            <constraint key="3">3</constraint>
+            <constraint key="4">4</constraint>
+            <constraint key="5">5</constraint>
+            <constraint key="6">6</constraint>
+            <constraint key="7">7</constraint>
+            <constraint key="8">8</constraint>
+            <constraint key="9">9</constraint>
+            <constraint key="10">10</constraint>
+            <constraint key="11">11</constraint>
+            <constraint key="12">12</constraint>
+            <constraint key="13">13</constraint>
+            <constraint key="14">14</constraint>
+            <constraint key="15">15</constraint>
+            <constraint key="16">16</constraint>
+            <constraint key="17">17</constraint>
+            <constraint key="18">18</constraint>
+            <constraint key="19">19</constraint>
+            <constraint key="20">20</constraint>
+            <constraint key="21">21</constraint>
+            <constraint key="22">22</constraint>
+            <constraint key="23">23</constraint>
+            <constraint key="24">24</constraint>
+            <constraint key="25">25</constraint>
+            <constraint key="26">26</constraint>
+            <constraint key="27">27</constraint>
+            <constraint key="28">28</constraint>
+            <constraint key="29">29</constraint>
+            <constraint key="30">30</constraint>
+            <constraint key="31">31</constraint>
+            <constraint key="32">32</constraint>
+            <constraint key="33">33</constraint>
+            <constraint key="34">34</constraint>
+            <constraint key="35">35</constraint>
+            <constraint key="36">36</constraint>
+            <constraint key="37">37</constraint>
+            <constraint key="38">38</constraint>
+            <constraint key="39">39</constraint>
+            <constraint key="40">40</constraint>
+            <constraint key="41">41</constraint>
+            <constraint key="42">42</constraint>
+            <constraint key="43">43</constraint>
+            <constraint key="44">44</constraint>
+            <constraint key="45">45</constraint>
+            <constraint key="46">46</constraint>
+            <constraint key="47">47</constraint>
+            <constraint key="48">48</constraint>
+            <constraint key="49">49</constraint>
+            <constraint key="50">50</constraint>
+            <constraint key="51">51</constraint>
+            <constraint key="52">52</constraint>
+            <constraint key="53">53</constraint>
+            <constraint key="54">54</constraint>
+            <constraint key="55">55</constraint>
+            <constraint key="56">56</constraint>
+            <constraint key="57">57</constraint>
+            <constraint key="58">58</constraint>
+            <constraint key="59">59</constraint>
+            <constraint key="60">60</constraint>
+            <constraint key="61">61</constraint>
+            <constraint key="62">62</constraint>
+            <constraint key="63">63</constraint>
+            <constraint key="64">64</constraint>
+            <constraint key="65">65</constraint>
+            <constraint key="66">66</constraint>
+            <constraint key="67">67</constraint>
+            <constraint key="68">68</constraint>
+            <constraint key="69">69</constraint>
+            <constraint key="70">70</constraint>
+            <constraint key="71">71</constraint>
+            <constraint key="72">72</constraint>
+            <constraint key="73">73</constraint>
+            <constraint key="74">74</constraint>
+            <constraint key="75">75</constraint>
+            <constraint key="76">76</constraint>
+            <constraint key="77">77</constraint>
+            <constraint key="78">78</constraint>
+            <constraint key="79">79</constraint>
+            <constraint key="80">80</constraint>
+            <constraint key="81">81</constraint>
+            <constraint key="82">82</constraint>
+            <constraint key="83">83</constraint>
+            <constraint key="84">84</constraint>
+            <constraint key="85">85</constraint>
+            <constraint key="86">86</constraint>
+            <constraint key="87">87</constraint>
+            <constraint key="88">88</constraint>
+            <constraint key="89">89</constraint>
+            <constraint key="90">90</constraint>
+            <constraint key="91">91</constraint>
+            <constraint key="92">92</constraint>
+            <constraint key="93">93</constraint>
+            <constraint key="94">94</constraint>
+            <constraint key="95">95</constraint>
+            <constraint key="96">96</constraint>
+            <constraint key="97">97</constraint>
+            <constraint key="98">98</constraint>
+            <constraint key="99">99</constraint>
+            <constraint key="100">100</constraint>
+         </param>
+      </params>
+   </meta>
+   
+<tab height="833" left="0" name="NovaStar UHD Jr" tabposition="south" top="0" width="1000">
+      <abs name="Presets/Brightness">
+         <table height="800" left="0" top="0" width="1000">
+            <tr>
+               <label colspan="3" fill="both" header="true" height="50" name="NovaStar UHD Jr" rowspan="2" style="txt-align:center;bg#14205F;size:Bigger;" weightx="1.0" weighty="1.0"/>
+            </tr>
+            <tr/>
+            <tr>
+               <label colspan="2" fill="both" header="true" name="Load Presets" rowspan="1" style="txt-align:center;size:Big;" weightx="1.0" weighty="1.0"/>
+               <label colspan="1" fill="both" header="true" name="Bightness" rowspan="1" style="txt-align:center;size:Big;" weightx="1.0" weighty="1.0"/>
+            </tr>
+            <tr>
+               <param colspan="1" expand="true" fill="both" oid="Preset_1_Name" rowspan="1" style="txt-align:center;" weightx="1.0" weighty="1.0"/>
+               <button buttontype="push" colspan="1" fill="both" id="preset1" left="0" name="Preset 1" rowspan="1" top="0" weightx="1.0" weighty="1.0">
+                  <task tasktype="ogscript">/*! block id=1074,1020,1021,1073,1072 !*/
+rosstalk.sendAsBytesWithResponse(params.getValue('IP_Address', 0), params.getValue('Port_Number', 0), "55 AA 00 00 FE 00 00 00 00 00 01 00 00 01 51 13 01 00 00 ba 56", params.getValue('presetResponse', 0), null);
+/*!!
+ &lt;block id="1074" type="ogscript_sendtcpbyteswresponse" x="547" y="10" w="318" HOST="ID:1020" PORT="ID:1021" BYTES="ID:1073" ENDOFMESSAGE="ID:1072" CALLBACK="null" /&gt;
+&lt;block id="1020" type="param__top&amp;amp;IP Address (IP_Address)[0]" x="10" y="10" w="243" SET="" /&gt;
+&lt;block id="1021" type="param__top&amp;amp;Port Number (Port_Number)[0]" x="10" y="72" w="243" SET="" /&gt;
+&lt;block id="1073" type="string" x="10" y="134" w="507" VALUE="55 AA 00 00 FE 00 00 00 00 00 01 00 00 01 51 13 01 00 00 ba 56" /&gt;
+&lt;block id="1072" type="param__top&amp;amp;Preset Response (presetResponse)[0]" x="10" y="196" w="243" SET="" /&gt;
+!!*/
+/*!!&lt;checksum&gt;530e000dfc605e7db089047e4588d0d3&lt;/checksum&gt;!!*/</task>
+               </button>
+               <param anchor="northwest" expand="true" fill="both" gpi="10" id="brightness" oid="brightFader" precision="1" rowspan="10" style="txt-align:center;" widget="slider-vertical">
+                  <task tasktype="ogscript">/*! block id=1018,1024,1025,1131,1134 !*/
+rosstalk.sendAsBytes(params.getValue('IP_Address', 0), params.getValue('Port_Number', 0), params.getValue('brightValues', params.getValue('brightFader', 0)), null);
+/*! block id=1133 !*/
+ogscript.debug("");
+/*! block id=1022 !*/
+"aa 55 00 00 ff fe 01 ff ff ff 01 00 01 00 00 02 00 00 54 5a"
+/*!!
+ &lt;block id="1018" type="ogscript_sendtcpbytes" x="631" y="10" w="318" HOST="ID:1024" PORT="ID:1025" BYTES="ID:1131" CALLBACK="null"  next="ID:1133" /&gt;
+&lt;block id="1024" type="param__top&amp;amp;IP Address (IP_Address)[0]" x="358" y="10" w="243" SET="" /&gt;
+&lt;block id="1025" type="param__top&amp;amp;Port Number (Port_Number)[0]" x="358" y="72" w="243" SET="" /&gt;
+&lt;block id="1131" type="param__top&amp;amp;Brightness Values (brightValues)[0]" x="358" y="174" w="243" SET="" INDEX="ID:1134" /&gt;
+&lt;block id="1134" type="param_getvalue" x="10" y="174" w="318" PARAM="[root, Params for NovaStarUHD%20Jr.grid, Not In Menu, Brightness Fader (brightFader)]" /&gt;
+&lt;block id="1133" type="ogscript_debug" x="631" y="174" w="243" MESSAGE="" /&gt;
+&lt;block id="1022" type="string" x="631" y="290" w="168" VALUE="aa 55 00 00 ff fe 01 ff ff ff 01 00 01 00 00 02 00 00 54 5a" /&gt;
+!!*/
+/*!!&lt;checksum&gt;37fbaac2bb822e13b417198214e0fdb8&lt;/checksum&gt;!!*/</task>
+               </param>
+            </tr>
+            <tr>
+               <param colspan="1" expand="true" fill="both" oid="Preset_2_Name" rowspan="1" style="txt-align:center;" weightx="1.0" weighty="1.0"/>
+               <button anchor="center" buttontype="push" colspan="1" fill="both" gpi="301" id="preset2" left="0" name="Preset 2" rowspan="1" top="0" weightx="1.0" weighty="1.0">
+                  <task tasktype="ogscript">/*! block id=1065,1022,1023,1064,1075 !*/
+rosstalk.sendAsBytesWithResponse(params.getValue('IP_Address', 0), params.getValue('Port_Number', 0), "55 AA 00 00 FE 00 00 00 00 00 01 00 00 01 51 13 01 00 01 bb 56", params.getValue('presetResponse', 0), null);
+/*!!
+ &lt;block id="1065" type="ogscript_sendtcpbyteswresponse" x="548" y="10" w="318" HOST="ID:1022" PORT="ID:1023" BYTES="ID:1064" ENDOFMESSAGE="ID:1075" CALLBACK="null" /&gt;
+&lt;block id="1022" type="param__top&amp;amp;IP Address (IP_Address)[0]" x="10" y="10" w="243" SET="" /&gt;
+&lt;block id="1023" type="param__top&amp;amp;Port Number (Port_Number)[0]" x="10" y="72" w="243" SET="" /&gt;
+&lt;block id="1064" type="string" x="10" y="134" w="508" VALUE="55 AA 00 00 FE 00 00 00 00 00 01 00 00 01 51 13 01 00 01 bb 56" /&gt;
+&lt;block id="1075" type="param__top&amp;amp;Preset Response (presetResponse)[0]" x="10" y="196" w="243" SET="" /&gt;
+!!*/
+/*!!&lt;checksum&gt;fd04ca37156dc70500cbfa831a4c6806&lt;/checksum&gt;!!*/</task>
+               </button>
+            </tr>
+            <tr>
+               <param colspan="1" expand="true" fill="both" oid="Preset_3_Name" rowspan="1" style="txt-align:center;" weightx="1.0" weighty="1.0"/>
+               <button buttontype="push" colspan="1" fill="both" gpi="302" id="preset3" left="143" name="Preset 3" rowspan="1" top="0" weightx="1.0" weighty="1.0">
+                  <task tasktype="ogscript">/*! block id=1077,1024,1025,1076,1078 !*/
+rosstalk.sendAsBytesWithResponse(params.getValue('IP_Address', 0), params.getValue('Port_Number', 0), "55 AA 00 00 FE 00 00 00 00 00 01 00 00 01 51 13 01 00 02 bc 56", params.getValue('presetResponse', 0), null);
+/*!!
+ &lt;block id="1077" type="ogscript_sendtcpbyteswresponse" x="549" y="10" w="318" HOST="ID:1024" PORT="ID:1025" BYTES="ID:1076" ENDOFMESSAGE="ID:1078" CALLBACK="null" /&gt;
+&lt;block id="1024" type="param__top&amp;amp;IP Address (IP_Address)[0]" x="10" y="10" w="243" SET="" /&gt;
+&lt;block id="1025" type="param__top&amp;amp;Port Number (Port_Number)[0]" x="10" y="72" w="243" SET="" /&gt;
+&lt;block id="1076" type="string" x="10" y="134" w="509" VALUE="55 AA 00 00 FE 00 00 00 00 00 01 00 00 01 51 13 01 00 02 bc 56" /&gt;
+&lt;block id="1078" type="param__top&amp;amp;Preset Response (presetResponse)[0]" x="10" y="196" w="243" SET="" /&gt;
+!!*/
+/*!!&lt;checksum&gt;2e07f2eb46187705e62f3b0f091f27f4&lt;/checksum&gt;!!*/</task>
+               </button>
+            </tr>
+            <tr>
+               <param colspan="1" expand="true" fill="both" oid="Preset_4_Name" rowspan="1" style="txt-align:center;" weightx="1.0" weighty="1.0"/>
+               <button buttontype="push" colspan="1" fill="both" gpi="303" id="preset4" left="143" name="Preset 4" rowspan="1" top="0" weightx="1.0" weighty="1.0">
+                  <task tasktype="ogscript">/*! block id=1080,1026,1027,1079,1081 !*/
+rosstalk.sendAsBytesWithResponse(params.getValue('IP_Address', 0), params.getValue('Port_Number', 0), "55 AA 00 00 FE 00 00 00 00 00 01 00 00 01 51 13 01 00 03 bd 56", params.getValue('presetResponse', 0), null);
+/*!!
+ &lt;block id="1080" type="ogscript_sendtcpbyteswresponse" x="545" y="10" w="318" HOST="ID:1026" PORT="ID:1027" BYTES="ID:1079" ENDOFMESSAGE="ID:1081" CALLBACK="null" /&gt;
+&lt;block id="1026" type="param__top&amp;amp;IP Address (IP_Address)[0]" x="10" y="10" w="243" SET="" /&gt;
+&lt;block id="1027" type="param__top&amp;amp;Port Number (Port_Number)[0]" x="10" y="72" w="243" SET="" /&gt;
+&lt;block id="1079" type="string" x="10" y="134" w="505" VALUE="55 AA 00 00 FE 00 00 00 00 00 01 00 00 01 51 13 01 00 03 bd 56" /&gt;
+&lt;block id="1081" type="param__top&amp;amp;Preset Response (presetResponse)[0]" x="10" y="196" w="243" SET="" /&gt;
+!!*/
+/*!!&lt;checksum&gt;1adf36005b8bede05a189458d5a9887b&lt;/checksum&gt;!!*/</task>
+               </button>
+            </tr>
+            <tr>
+               <param colspan="1" expand="true" fill="both" oid="Preset_5_Name" rowspan="1" style="txt-align:center;" weightx="1.0" weighty="1.0"/>
+               <button buttontype="push" colspan="1" fill="both" id="preset5" left="143" name="Preset 5" rowspan="1" top="0" weightx="1.0" weighty="1.0">
+                  <task tasktype="ogscript">/*! block id=1084,1028,1029,1082,1083 !*/
+rosstalk.sendAsBytesWithResponse(params.getValue('IP_Address', 0), params.getValue('Port_Number', 0), "55 AA 00 00 FE 00 00 00 00 00 01 00 00 01 51 13 01 00 04 be 56", params.getValue('presetResponse', 0), null);
+/*!!
+ &lt;block id="1084" type="ogscript_sendtcpbyteswresponse" x="571" y="10" w="318" HOST="ID:1028" PORT="ID:1029" BYTES="ID:1082" ENDOFMESSAGE="ID:1083" CALLBACK="null" /&gt;
+&lt;block id="1028" type="param__top&amp;amp;IP Address (IP_Address)[0]" x="10" y="10" w="243" SET="" /&gt;
+&lt;block id="1029" type="param__top&amp;amp;Port Number (Port_Number)[0]" x="10" y="72" w="243" SET="" /&gt;
+&lt;block id="1082" type="string" x="10" y="134" w="531" VALUE="55 AA 00 00 FE 00 00 00 00 00 01 00 00 01 51 13 01 00 04 be 56" /&gt;
+&lt;block id="1083" type="param__top&amp;amp;Preset Response (presetResponse)[0]" x="10" y="196" w="243" SET="" /&gt;
+!!*/
+/*!!&lt;checksum&gt;15c0a193f691fcf5f9c4b396b865445a&lt;/checksum&gt;!!*/</task>
+               </button>
+            </tr>
+            <tr>
+               <param colspan="1" expand="true" fill="both" oid="Preset_6_Name" rowspan="1" style="txt-align:center;" weightx="1.0" weighty="1.0"/>
+               <button buttontype="push" colspan="1" fill="both" id="preset6" left="143" name="Preset 6" rowspan="1" top="0" weightx="1.0" weighty="1.0">
+                  <task tasktype="ogscript">/*! block id=1087,1036,1038,1085,1086 !*/
+rosstalk.sendAsBytesWithResponse(params.getValue('IP_Address', 0), params.getValue('Port_Number', 0), "55 AA 00 00 FE 00 00 00 00 00 01 00 00 01 51 13 01 00 05 bf 56", params.getValue('presetResponse', 0), null);
+/*!!
+ &lt;block id="1087" type="ogscript_sendtcpbyteswresponse" x="541" y="10" w="318" HOST="ID:1036" PORT="ID:1038" BYTES="ID:1085" ENDOFMESSAGE="ID:1086" CALLBACK="null" /&gt;
+&lt;block id="1036" type="param__top&amp;amp;IP Address (IP_Address)[0]" x="10" y="10" w="243" SET="" /&gt;
+&lt;block id="1038" type="param__top&amp;amp;Port Number (Port_Number)[0]" x="10" y="72" w="243" SET="" /&gt;
+&lt;block id="1085" type="string" x="10" y="134" w="501" VALUE="55 AA 00 00 FE 00 00 00 00 00 01 00 00 01 51 13 01 00 05 bf 56" /&gt;
+&lt;block id="1086" type="param__top&amp;amp;Preset Response (presetResponse)[0]" x="10" y="196" w="243" SET="" /&gt;
+!!*/
+/*!!&lt;checksum&gt;f46453c4b8bb6b382300d000099660d2&lt;/checksum&gt;!!*/</task>
+               </button>
+            </tr>
+            <tr>
+               <param colspan="1" expand="true" fill="both" oid="Preset_7_Name" rowspan="1" style="txt-align:center;" weightx="1.0" weighty="1.0"/>
+               <button buttontype="push" colspan="1" fill="both" id="preset7" left="143" name="Preset 7" rowspan="1" top="0" weightx="1.0" weighty="1.0">
+                  <task tasktype="ogscript">/*! block id=1090,1040,1041,1088,1089 !*/
+rosstalk.sendAsBytesWithResponse(params.getValue('IP_Address', 0), params.getValue('Port_Number', 0), "55 AA 00 00 FE 00 00 00 00 00 01 00 00 01 51 13 01 00 06 c0 56", params.getValue('presetResponse', 0), null);
+/*!!
+ &lt;block id="1090" type="ogscript_sendtcpbyteswresponse" x="546" y="10" w="318" HOST="ID:1040" PORT="ID:1041" BYTES="ID:1088" ENDOFMESSAGE="ID:1089" CALLBACK="null" /&gt;
+&lt;block id="1040" type="param__top&amp;amp;IP Address (IP_Address)[0]" x="10" y="10" w="243" SET="" /&gt;
+&lt;block id="1041" type="param__top&amp;amp;Port Number (Port_Number)[0]" x="10" y="72" w="243" SET="" /&gt;
+&lt;block id="1088" type="string" x="10" y="134" w="506" VALUE="55 AA 00 00 FE 00 00 00 00 00 01 00 00 01 51 13 01 00 06 c0 56" /&gt;
+&lt;block id="1089" type="param__top&amp;amp;Preset Response (presetResponse)[0]" x="10" y="196" w="243" SET="" /&gt;
+!!*/
+/*!!&lt;checksum&gt;49736efb3ea0405bbb1eabc7159ffe81&lt;/checksum&gt;!!*/</task>
+               </button>
+            </tr>
+            <tr>
+               <param colspan="1" expand="true" fill="both" oid="Preset_8_Name" rowspan="1" style="txt-align:center;" weightx="1.0" weighty="1.0"/>
+               <button buttontype="push" colspan="1" fill="both" id="preset8" left="143" name="Preset 8" rowspan="1" top="0" weightx="1.0" weighty="1.0">
+                  <task tasktype="ogscript">/*! block id=1092,1043,1044,1091,1093 !*/
+rosstalk.sendAsBytesWithResponse(params.getValue('IP_Address', 0), params.getValue('Port_Number', 0), "55 AA 00 00 FE 00 00 00 00 00 01 00 00 01 51 13 01 00 07 c1 56", params.getValue('presetResponse', 0), null);
+/*!!
+ &lt;block id="1092" type="ogscript_sendtcpbyteswresponse" x="544" y="10" w="318" HOST="ID:1043" PORT="ID:1044" BYTES="ID:1091" ENDOFMESSAGE="ID:1093" CALLBACK="null" /&gt;
+&lt;block id="1043" type="param__top&amp;amp;IP Address (IP_Address)[0]" x="10" y="10" w="243" SET="" /&gt;
+&lt;block id="1044" type="param__top&amp;amp;Port Number (Port_Number)[0]" x="10" y="72" w="243" SET="" /&gt;
+&lt;block id="1091" type="string" x="10" y="134" w="504" VALUE="55 AA 00 00 FE 00 00 00 00 00 01 00 00 01 51 13 01 00 07 c1 56" /&gt;
+&lt;block id="1093" type="param__top&amp;amp;Preset Response (presetResponse)[0]" x="10" y="196" w="243" SET="" /&gt;
+!!*/
+/*!!&lt;checksum&gt;5e7246f588a948e6e4e9e9980e176caa&lt;/checksum&gt;!!*/</task>
+               </button>
+            </tr>
+            <tr>
+               <param colspan="1" expand="true" fill="both" oid="Preset_9_Name" rowspan="1" style="txt-align:center;" weightx="1.0" weighty="1.0"/>
+               <button buttontype="push" colspan="1" fill="both" id="preset9" left="143" name="Preset 9" rowspan="1" top="0" weightx="1.0" weighty="1.0">
+                  <task tasktype="ogscript">/*! block id=1095,1046,1047,1094,1096 !*/
+rosstalk.sendAsBytesWithResponse(params.getValue('IP_Address', 0), params.getValue('Port_Number', 0), "55 AA 00 00 FE 00 00 00 00 00 01 00 00 01 51 13 01 00 08 c2 56", params.getValue('presetResponse', 0), null);
+/*!!
+ &lt;block id="1095" type="ogscript_sendtcpbyteswresponse" x="542" y="10" w="318" HOST="ID:1046" PORT="ID:1047" BYTES="ID:1094" ENDOFMESSAGE="ID:1096" CALLBACK="null" /&gt;
+&lt;block id="1046" type="param__top&amp;amp;IP Address (IP_Address)[0]" x="10" y="10" w="243" SET="" /&gt;
+&lt;block id="1047" type="param__top&amp;amp;Port Number (Port_Number)[0]" x="10" y="72" w="243" SET="" /&gt;
+&lt;block id="1094" type="string" x="10" y="134" w="502" VALUE="55 AA 00 00 FE 00 00 00 00 00 01 00 00 01 51 13 01 00 08 c2 56" /&gt;
+&lt;block id="1096" type="param__top&amp;amp;Preset Response (presetResponse)[0]" x="10" y="196" w="243" SET="" /&gt;
+!!*/
+/*!!&lt;checksum&gt;0c484532620ab4fe4c0487da17c49ee2&lt;/checksum&gt;!!*/</task>
+               </button>
+            </tr>
+            <tr>
+               <param colspan="1" expand="true" fill="both" oid="Preset_10_Name" rowspan="1" style="txt-align:center;" weightx="1.0" weighty="1.0"/>
+               <button buttontype="push" colspan="1" fill="both" id="preset10" left="143" name="Preset 10" rowspan="1" top="0" weightx="1.0" weighty="1.0">
+                  <task tasktype="ogscript">/*! block id=1098,1049,1050,1097,1099 !*/
+rosstalk.sendAsBytesWithResponse(params.getValue('IP_Address', 0), params.getValue('Port_Number', 0), "55 AA 00 00 FE 00 00 00 00 00 01 00 00 01 51 13 01 00 09 c3 56", params.getValue('presetResponse', 0), null);
+/*!!
+ &lt;block id="1098" type="ogscript_sendtcpbyteswresponse" x="542" y="10" w="318" HOST="ID:1049" PORT="ID:1050" BYTES="ID:1097" ENDOFMESSAGE="ID:1099" CALLBACK="null" /&gt;
+&lt;block id="1049" type="param__top&amp;amp;IP Address (IP_Address)[0]" x="10" y="10" w="243" SET="" /&gt;
+&lt;block id="1050" type="param__top&amp;amp;Port Number (Port_Number)[0]" x="10" y="72" w="243" SET="" /&gt;
+&lt;block id="1097" type="string" x="10" y="134" w="502" VALUE="55 AA 00 00 FE 00 00 00 00 00 01 00 00 01 51 13 01 00 09 c3 56" /&gt;
+&lt;block id="1099" type="param__top&amp;amp;Preset Response (presetResponse)[0]" x="10" y="196" w="243" SET="" /&gt;
+!!*/
+/*!!&lt;checksum&gt;6100d476af3f9bd999b6a7b22d0cf321&lt;/checksum&gt;!!*/</task>
+               </button>
+            </tr>
+         </table>
+      </abs>
+      <abs name="IP Config">
+         <table height="250" left="0" top="0" width="500">
+            <tr>
+               <label colspan="1" fill="both" name="IP Address" rowspan="1" style="txt-align:center" weightx="1.0" weighty="1.0"/>
+               <param colspan="1" expand="true" fill="both" oid="IP_Address" rowspan="1" weightx="1.0" weighty="1.0"/>
+            </tr>
+            <tr>
+               <label colspan="1" fill="both" name="Port Number" rowspan="1" style="txt-align:center" weightx="1.0" weighty="1.0"/>
+               <param colspan="1" expand="true" fill="both" oid="Port_Number" rowspan="1" style="txt-align:center;" weightx="1.0" weighty="1.0"/>
+            </tr>
+         </table>
+      </abs>
+   </tab>
+   
+
+   
+   
+
+</abs>

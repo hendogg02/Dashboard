@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><abs contexttype="opengear" gridsize="20" id="_top" sharedsession="true" style="" virtualheight="946" virtualwidth="1507">
+   <button buttontype="push" height="200" left="80" name="Web OTT" top="360" width="200">
+      <task tasktype="ogscript">
+
+
+/*! block id=1002 !*/
+rosstalk.sendAsBytes("10.102.4.1", 5555, "0x1B 0x5B 0x50 0x09 0x00 0xF9 0x03 0xC3 0x0B", null);
+/*!!
+ &lt;block id="1002" type="ogscript_sendtcpbytes" x="10" y="10" w="318" HOST="10.102.4.1" PORT="5555" BYTES="0x1B 0x5B 0x50 0x09 0x00 0xF9 0x03 0xC3 0x0B" CALLBACK="null" /&gt;
+!!*/
+/*!!&lt;checksum&gt;6ffe90c738012c42fe54059e8b76f6ca&lt;/checksum&gt;!!*/</task>
+   </button>
+<button buttontype="push" height="200" left="340" name="Dec" top="360" width="200">
+      <task tasktype="ogscript">
+
+
+/*! block id=1002 !*/
+rosstalk.sendAsBytes("10.102.4.1", 5555, "0x1B 0x5B 0x50 0x09 0x00 0xFC 0x03 0xC3 0x0B", null);
+/*!!
+ &lt;block id="1002" type="ogscript_sendtcpbytes" x="10" y="264" w="318" HOST="10.102.4.1" PORT="5555" BYTES="0x1B 0x5B 0x50 0x09 0x00 0xFC 0x03 0xC3 0x0B" CALLBACK="null" /&gt;
+!!*/
+/*!!&lt;checksum&gt;419907c5a22055f71cab89129476ea1f&lt;/checksum&gt;!!*/</task>
+   </button>
+   <button buttontype="push" height="200" left="600" name="Enc 1" top="360" width="200">
+      <task tasktype="ogscript">
+
+
+/*! block id=1002 !*/
+rosstalk.sendAsBytes("10.102.4.1", 5555, "0x1B 0x5B 0x50 0x09 0x00 0xFA 0x03 0xC3 0x0B", null);
+/*!!
+ &lt;block id="1002" type="ogscript_sendtcpbytes" x="10" y="264" w="318" HOST="10.102.4.1" PORT="5555" BYTES="0x1B 0x5B 0x50 0x09 0x00 0xFA 0x03 0xC3 0x0B" CALLBACK="null" /&gt;
+!!*/
+/*!!&lt;checksum&gt;e2d25e2efc9b6ffbaf6ac29c9c936a2d&lt;/checksum&gt;!!*/</task>
+   </button>
+   <button buttontype="push" height="200" left="860" name="Enc 2" top="360" width="200">
+      <task tasktype="ogscript">
+
+
+/*! block id=1002 !*/
+rosstalk.sendAsBytes("10.102.4.1", 5555, "0x1B 0x5B 0x50 0x09 0x00 0xFB 0x03 0xC3 0x0B", null);
+/*!!
+ &lt;block id="1002" type="ogscript_sendtcpbytes" x="10" y="264" w="318" HOST="10.102.4.1" PORT="5555" BYTES="0x1B 0x5B 0x50 0x09 0x00 0xFB 0x03 0xC3 0x0B" CALLBACK="null" /&gt;
+!!*/
+/*!!&lt;checksum&gt;f3c9fcb642c8e7a78e35090d5f682362&lt;/checksum&gt;!!*/</task>
+   </button>
+   <button buttontype="push" height="200" left="1120" name="MC Eng" top="360" width="200">
+      <task tasktype="ogscript">
+
+
+/*! block id=1002 !*/
+rosstalk.sendAsBytes("10.102.4.1", 5555, "0x1B 0x5B 0x50 0x09 0x00 0xF8 0x03 0xC3 0x0B", null);
+/*!!
+ &lt;block id="1002" type="ogscript_sendtcpbytes" x="10" y="264" w="318" HOST="10.102.4.1" PORT="5555" BYTES="0x1B 0x5B 0x50 0x09 0x00 0xF8 0x03 0xC3 0x0B" CALLBACK="null" /&gt;
+!!*/
+/*!!&lt;checksum&gt;ab4b5f8937d5d06108d63a810f5b14ea&lt;/checksum&gt;!!*/</task>
+   </button>
+<button buttontype="push" height="100" left="60" name="MCR" top="40" width="150">
+      <task tasktype="ogscript">var Console = "0xC3"</task>
+   </button>
+</abs>
