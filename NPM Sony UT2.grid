@@ -12,6 +12,9 @@
          <param access="1" maxlength="0" name="MCR 4" oid="MCR_4" type="STRING" value="10.1.1.4" widget="text"/>
          <param access="1" maxlength="0" name="MCR 5" oid="MCR_5" type="STRING" value="10.1.1.5" widget="text"/>
          <param access="1" maxlength="0" name="MCR 6" oid="MCR_6" type="STRING" value="10.1.1.6" widget="text"/>
+         <param access="1" maxlength="0" name="CR 1 - Mon 1" oid="CR_1_Mon_1" type="STRING" value="10.1.1.7" widget="text"/>
+         <param access="1" maxlength="0" name="CR 1 - Mon 2" oid="CR_1_Mon_2" type="STRING" value="10.1.1.8" widget="text"/>
+         <param access="1" maxlength="0" name="CR 1 - Mon 3" oid="CR_1_Mon_3" type="STRING" value="10.1.1.9" widget="text"/>
       </params>
    </meta>
    <tab bottom="0" left="0" right="0" tabposition="south" top="0">
@@ -437,33 +440,95 @@ rosstalk.sendAsBytes(params.getValue('MCR_4', 0), params.getValue('sony.port', 0
       <abs name="CR 1" virtualheight="168" virtualwidth="1302">
          <table bottom="0" left="0" right="0" top="0">
             <tr>
-               <table colspan="1" fill="both" pheight="168" pwidth="871" rowspan="1" weightx="1.0" weighty="1.0">
+               <table colspan="1" fill="both" pheight="168" pwidth="895" rowspan="1" weightx="1.0" weighty="1.0">
                   <tr>
-                     <dropspot colspan="1" fill="both" pheight="42" pwidth="290" rowspan="1" weightx="1.0" weighty="1.0"/>
-                     <dropspot colspan="1" fill="both" pheight="42" pwidth="290" rowspan="1" weightx="1.0" weighty="1.0"/>
-                     <dropspot colspan="1" fill="both" pheight="42" pwidth="290" rowspan="1" weightx="1.0" weighty="1.0"/>
-                  </tr>
-                  <tr>
-                     <dropspot colspan="1" fill="both" pheight="42" pwidth="290" rowspan="1" weightx="1.0" weighty="1.0"/>
-                     <dropspot colspan="1" fill="both" pheight="42" pwidth="290" rowspan="1" weightx="1.0" weighty="1.0"/>
-                     <dropspot colspan="1" fill="both" pheight="42" pwidth="290" rowspan="1" weightx="1.0" weighty="1.0"/>
-                  </tr>
-                  <tr>
-                     <dropspot colspan="1" fill="both" pheight="42" pwidth="290" rowspan="1" weightx="1.0" weighty="1.0"/>
-                     <dropspot colspan="1" fill="both" pheight="42" pwidth="290" rowspan="1" weightx="1.0" weighty="1.0"/>
-                     <dropspot colspan="1" fill="both" pheight="42" pwidth="290" rowspan="1" weightx="1.0" weighty="1.0"/>
-                  </tr>
-                  <tr>
-                     <dropspot colspan="1" fill="both" pheight="42" pwidth="290" rowspan="1" weightx="1.0" weighty="1.0"/>
-                     <dropspot colspan="1" fill="both" pheight="42" pwidth="290" rowspan="1" weightx="1.0" weighty="1.0"/>
-                     <dropspot colspan="1" fill="both" pheight="42" pwidth="290" rowspan="1" weightx="1.0" weighty="1.0"/>
+                     <button buttontype="push" colspan="1" fill="both" name="CR 1 - Mon 1" pheight="168" pwidth="298" rowspan="1" weightx="1.0" weighty="1.0">
+                        <task tasktype="ogscript"/>
+                        <task tasktype="ogscript">
+
+
+/*! block id=1182,1179,1180,1181 !*/
+rosstalk.sendAsBytes(params.getValue('CR_1_Mon_1', 0), params.getValue('sony.port', 0), params.getValue('sony.power.toggle', 0), null);
+/*!!
+ &lt;block id="1182" type="ogscript_sendtcpbytes" x="283" y="10" w="318" HOST="ID:1179" PORT="ID:1180" BYTES="ID:1181" CALLBACK="null" /&gt;
+&lt;block id="1179" type="param__top&amp;amp;CR 1 - Mon 1 (CR_1_Mon_1)[0]" x="10" y="10" w="243" SET="" /&gt;
+&lt;block id="1180" type="param__top&amp;amp;sony.port (sony.port)[0]" x="10" y="72" w="243" SET="" /&gt;
+&lt;block id="1181" type="param__top&amp;amp;sony.power.toggle (sony.power.toggle)[0]" x="10" y="134" w="243" SET="" /&gt;
+!!*/
+/*!!&lt;checksum&gt;85df93b2f8a00ec93c21ef71cbd56f19&lt;/checksum&gt;!!*/</task>
+                     </button>
+                     <button buttontype="push" colspan="1" fill="both" name="CR 1 - Mon 2" pheight="168" pwidth="298" rowspan="1" weightx="1.0" weighty="1.0">
+                        <task tasktype="ogscript">
+
+
+/*! block id=1186,1183,1184,1185 !*/
+rosstalk.sendAsBytes(params.getValue('CR_1_Mon_2', 0), params.getValue('sony.port', 0), params.getValue('sony.power.toggle', 0), null);
+/*!!
+ &lt;block id="1186" type="ogscript_sendtcpbytes" x="283" y="10" w="318" HOST="ID:1183" PORT="ID:1184" BYTES="ID:1185" CALLBACK="null" /&gt;
+&lt;block id="1183" type="param__top&amp;amp;CR 1 - Mon 2 (CR_1_Mon_2)[0]" x="10" y="10" w="243" SET="" /&gt;
+&lt;block id="1184" type="param__top&amp;amp;sony.port (sony.port)[0]" x="10" y="72" w="243" SET="" /&gt;
+&lt;block id="1185" type="param__top&amp;amp;sony.power.toggle (sony.power.toggle)[0]" x="10" y="134" w="243" SET="" /&gt;
+!!*/
+/*!!&lt;checksum&gt;8c58686c649ad9293e27d20f1ec3bcd7&lt;/checksum&gt;!!*/</task>
+                     </button>
+                     <button buttontype="push" colspan="1" fill="both" name="CR 1 - Mon 3" pheight="168" pwidth="298" rowspan="1" weightx="1.0" weighty="1.0">
+                        <task tasktype="ogscript">
+
+
+/*! block id=1190,1187,1188,1189 !*/
+rosstalk.sendAsBytes(params.getValue('CR_1_Mon_3', 0), params.getValue('sony.port', 0), params.getValue('sony.power.toggle', 0), null);
+/*!!
+ &lt;block id="1190" type="ogscript_sendtcpbytes" x="283" y="10" w="318" HOST="ID:1187" PORT="ID:1188" BYTES="ID:1189" CALLBACK="null" /&gt;
+&lt;block id="1187" type="param__top&amp;amp;CR 1 - Mon 3 (CR_1_Mon_3)[0]" x="10" y="10" w="243" SET="" /&gt;
+&lt;block id="1188" type="param__top&amp;amp;sony.port (sony.port)[0]" x="10" y="72" w="243" SET="" /&gt;
+&lt;block id="1189" type="param__top&amp;amp;sony.power.toggle (sony.power.toggle)[0]" x="10" y="134" w="243" SET="" /&gt;
+!!*/
+/*!!&lt;checksum&gt;f3e8cb6717e94529d52adc242236f267&lt;/checksum&gt;!!*/</task>
+                     </button>
                   </tr>
                </table>
-               <dropspot colspan="1" fill="both" pheight="168" pwidth="430" rowspan="1" weightx="0.5" weighty="1.0"/>
+               <button buttontype="push" colspan="1" fill="both" name="CR 1 - All Mon" pheight="168" pwidth="407" rowspan="1" weightx="0.5" weighty="1.0">
+                  <task tasktype="ogscript">
+
+
+/*! block id=1191,1194,1197,1198 !*/
+rosstalk.sendAsBytes(params.getValue('CR_1_Mon_1', 0), params.getValue('sony.port', 0), params.getValue('sony.power.toggle', 0), null);
+/*! block id=1192,1195,1197,1198 !*/
+rosstalk.sendAsBytes(params.getValue('CR_1_Mon_2', 0), params.getValue('sony.port', 0), params.getValue('sony.power.toggle', 0), null);
+/*! block id=1193,1196,1197,1198 !*/
+rosstalk.sendAsBytes(params.getValue('CR_1_Mon_3', 0), params.getValue('sony.port', 0), params.getValue('sony.power.toggle', 0), null);
+/*!!
+ &lt;block id="1191" type="ogscript_sendtcpbytes" x="283" y="10" w="318" HOST="ID:1194" PORT="ID:1197" BYTES="ID:1198" CALLBACK="null" /&gt;
+&lt;block id="1194" type="param__top&amp;amp;CR 1 - Mon 1 (CR_1_Mon_1)[0]" x="10" y="10" w="243" SET="" /&gt;
+&lt;block id="1197" type="param__top&amp;amp;sony.port (sony.port)[0]" x="10" y="72" w="243" SET="" /&gt;
+&lt;block id="1198" type="param__top&amp;amp;sony.power.toggle (sony.power.toggle)[0]" x="10" y="134" w="243" SET="" /&gt;
+&lt;block id="1192" type="ogscript_sendtcpbytes" x="283" y="226" w="318" HOST="ID:1195" PORT="ID:1197" BYTES="ID:1198" CALLBACK="null" /&gt;
+&lt;block id="1195" type="param__top&amp;amp;CR 1 - Mon 2 (CR_1_Mon_2)[0]" x="10" y="226" w="243" SET="" /&gt;
+&lt;block id="1197" type="param__top&amp;amp;sony.port (sony.port)[0]" x="10" y="72" w="243" SET="" /&gt;
+&lt;block id="1198" type="param__top&amp;amp;sony.power.toggle (sony.power.toggle)[0]" x="10" y="134" w="243" SET="" /&gt;
+&lt;block id="1193" type="ogscript_sendtcpbytes" x="283" y="390" w="318" HOST="ID:1196" PORT="ID:1197" BYTES="ID:1198" CALLBACK="null" /&gt;
+&lt;block id="1196" type="param__top&amp;amp;CR 1 - Mon 3 (CR_1_Mon_3)[0]" x="10" y="390" w="243" SET="" /&gt;
+&lt;block id="1197" type="param__top&amp;amp;sony.port (sony.port)[0]" x="10" y="72" w="243" SET="" /&gt;
+&lt;block id="1198" type="param__top&amp;amp;sony.power.toggle (sony.power.toggle)[0]" x="10" y="134" w="243" SET="" /&gt;
+!!*/
+/*!!&lt;checksum&gt;64797d887c1b05fccc77adc1ab18bd12&lt;/checksum&gt;!!*/</task>
+               </button>
             </tr>
          </table>
       </abs>
-      <abs name="CR 2" virtualheight="168" virtualwidth="1302"/>
+      <abs name="CR 2" virtualheight="168" virtualwidth="1302">
+         <table bottom="0" left="0" right="0" top="0">
+            <tr>
+               <table colspan="1" fill="both" pheight="168" pwidth="868" rowspan="1" weightx="1.0" weighty="1.0">
+                  <tr>
+                     <dropspot colspan="1" fill="both" pheight="168" pwidth="434" rowspan="1" weightx="1.0" weighty="1.0"/>
+                     <dropspot colspan="1" fill="both" pheight="168" pwidth="434" rowspan="1" weightx="1.0" weighty="1.0"/>
+                  </tr>
+               </table>
+               <dropspot colspan="1" fill="both" pheight="168" pwidth="434" rowspan="1" weightx="0.5" weighty="1.0"/>
+            </tr>
+         </table>
+      </abs>
       <abs name="CR 3" virtualheight="168" virtualwidth="1302"/>
       <abs name="CR 4" virtualheight="168" virtualwidth="1302"/>
       <abs name="CR 5" virtualheight="168" virtualwidth="1302"/>
@@ -472,46 +537,46 @@ rosstalk.sendAsBytes(params.getValue('MCR_4', 0), params.getValue('sony.port', 0
       <abs name="Setup" virtualheight="168" virtualwidth="1302">
          <table bottom="0" left="0" right="0" top="0">
             <tr>
-               <label colspan="1" fill="both" name="MCR 1" pheight="56" pwidth="89" rowspan="1" style="txt-align:center;" weightx="0.5" weighty="1.0"/>
+               <label colspan="1" fill="both" name="MCR 1" pheight="56" pwidth="87" rowspan="1" style="txt-align:center;" weightx="0.5" weighty="1.0"/>
                <param anchor="center" colspan="1" fill="none" name="" oid="MCR_1" pheight="22" pwidth="75" rowspan="1" style="txt-align:north;" weightx="0.5" weighty="0.5" width="75"/>
-               <label colspan="1" fill="both" name="MCR 4" pheight="56" pwidth="89" rowspan="1" style="txt-align:center;" weightx="0.5" weighty="1.0"/>
+               <label colspan="1" fill="both" name="MCR 4" pheight="56" pwidth="87" rowspan="1" style="txt-align:center;" weightx="0.5" weighty="1.0"/>
                <param anchor="center" colspan="1" fill="none" name="" oid="MCR_4" pheight="22" pwidth="75" rowspan="1" style="txt-align:north;" weightx="0.5" weighty="0.5" width="75"/>
-               <dropspot colspan="1" fill="both" pheight="56" pwidth="109" rowspan="1" weightx="1.0" weighty="1.0"/>
-               <dropspot colspan="1" fill="both" pheight="56" pwidth="109" rowspan="1" weightx="1.0" weighty="1.0"/>
-               <dropspot colspan="1" fill="both" pheight="56" pwidth="109" rowspan="1" weightx="1.0" weighty="1.0"/>
-               <dropspot colspan="1" fill="both" pheight="56" pwidth="109" rowspan="1" weightx="1.0" weighty="1.0"/>
-               <dropspot colspan="1" fill="both" pheight="56" pwidth="109" rowspan="1" weightx="1.0" weighty="1.0"/>
-               <dropspot colspan="1" fill="both" pheight="56" pwidth="109" rowspan="1" weightx="1.0" weighty="1.0"/>
-               <dropspot colspan="1" fill="both" pheight="56" pwidth="109" rowspan="1" weightx="1.0" weighty="1.0"/>
-               <dropspot colspan="1" fill="both" pheight="56" pwidth="109" rowspan="1" weightx="1.0" weighty="1.0"/>
+               <label colspan="1" fill="both" name="CR 1 - Mon 1" pheight="56" pwidth="124" rowspan="1" style="txt-align:center;" weightx="0.5" weighty="1.0"/>
+               <param anchor="center" colspan="1" fill="none" name="" oid="CR_1_Mon_1" pheight="22" pwidth="75" rowspan="1" style="txt-align:north;" weightx="0.5" weighty="0.5" width="75"/>
+               <dropspot colspan="1" fill="both" pheight="56" pwidth="105" rowspan="1" weightx="1.0" weighty="1.0"/>
+               <dropspot colspan="1" fill="both" pheight="56" pwidth="105" rowspan="1" weightx="1.0" weighty="1.0"/>
+               <dropspot colspan="1" fill="both" pheight="56" pwidth="105" rowspan="1" weightx="1.0" weighty="1.0"/>
+               <dropspot colspan="1" fill="both" pheight="56" pwidth="105" rowspan="1" weightx="1.0" weighty="1.0"/>
+               <dropspot colspan="1" fill="both" pheight="56" pwidth="105" rowspan="1" weightx="1.0" weighty="1.0"/>
+               <dropspot colspan="1" fill="both" pheight="56" pwidth="105" rowspan="1" weightx="1.0" weighty="1.0"/>
             </tr>
             <tr>
-               <label colspan="1" fill="both" name="MCR 2" pheight="56" pwidth="89" rowspan="1" style="txt-align:center;" weightx="0.5" weighty="1.0"/>
+               <label colspan="1" fill="both" name="MCR 2" pheight="56" pwidth="87" rowspan="1" style="txt-align:center;" weightx="0.5" weighty="1.0"/>
                <param anchor="center" colspan="1" fill="none" name="" oid="MCR_2" pheight="22" pwidth="75" rowspan="1" style="txt-align:north;" weightx="0.5" weighty="0.5" width="75"/>
-               <label colspan="1" fill="both" name="MCR 5" pheight="56" pwidth="89" rowspan="1" style="txt-align:center;" weightx="0.5" weighty="1.0"/>
+               <label colspan="1" fill="both" name="MCR 5" pheight="56" pwidth="87" rowspan="1" style="txt-align:center;" weightx="0.5" weighty="1.0"/>
                <param anchor="center" colspan="1" fill="none" name="" oid="MCR_5" pheight="22" pwidth="75" rowspan="1" style="txt-align:north;" weightx="0.5" weighty="0.5" width="75"/>
-               <dropspot colspan="1" fill="both" pheight="56" pwidth="109" rowspan="1" weightx="1.0" weighty="1.0"/>
-               <dropspot colspan="1" fill="both" pheight="56" pwidth="109" rowspan="1" weightx="1.0" weighty="1.0"/>
-               <dropspot colspan="1" fill="both" pheight="56" pwidth="109" rowspan="1" weightx="1.0" weighty="1.0"/>
-               <dropspot colspan="1" fill="both" pheight="56" pwidth="109" rowspan="1" weightx="1.0" weighty="1.0"/>
-               <dropspot colspan="1" fill="both" pheight="56" pwidth="109" rowspan="1" weightx="1.0" weighty="1.0"/>
-               <dropspot colspan="1" fill="both" pheight="56" pwidth="109" rowspan="1" weightx="1.0" weighty="1.0"/>
-               <dropspot colspan="1" fill="both" pheight="56" pwidth="109" rowspan="1" weightx="1.0" weighty="1.0"/>
-               <dropspot colspan="1" fill="both" pheight="56" pwidth="109" rowspan="1" weightx="1.0" weighty="1.0"/>
+               <label colspan="1" fill="both" name="CR 1 - Mon 2" pheight="56" pwidth="124" rowspan="1" style="txt-align:center;" weightx="0.5" weighty="1.0"/>
+               <param anchor="center" colspan="1" fill="none" name="" oid="CR_1_Mon_2" pheight="22" pwidth="75" rowspan="1" style="txt-align:north;" weightx="0.5" weighty="0.5" width="75"/>
+               <dropspot colspan="1" fill="both" pheight="56" pwidth="105" rowspan="1" weightx="1.0" weighty="1.0"/>
+               <dropspot colspan="1" fill="both" pheight="56" pwidth="105" rowspan="1" weightx="1.0" weighty="1.0"/>
+               <dropspot colspan="1" fill="both" pheight="56" pwidth="105" rowspan="1" weightx="1.0" weighty="1.0"/>
+               <dropspot colspan="1" fill="both" pheight="56" pwidth="105" rowspan="1" weightx="1.0" weighty="1.0"/>
+               <dropspot colspan="1" fill="both" pheight="56" pwidth="105" rowspan="1" weightx="1.0" weighty="1.0"/>
+               <dropspot colspan="1" fill="both" pheight="56" pwidth="105" rowspan="1" weightx="1.0" weighty="1.0"/>
             </tr>
             <tr>
-               <label colspan="1" fill="both" name="MCR 3" pheight="56" pwidth="89" rowspan="1" style="txt-align:center;" weightx="0.5" weighty="1.0"/>
+               <label colspan="1" fill="both" name="MCR 3" pheight="56" pwidth="87" rowspan="1" style="txt-align:center;" weightx="0.5" weighty="1.0"/>
                <param anchor="center" colspan="1" fill="none" name="" oid="MCR_3" pheight="22" pwidth="75" rowspan="1" style="txt-align:north;" weightx="0.5" weighty="0.5" width="75"/>
-               <label colspan="1" fill="both" name="MCR 6" pheight="56" pwidth="89" rowspan="1" style="txt-align:center;" weightx="0.5" weighty="1.0"/>
+               <label colspan="1" fill="both" name="MCR 6" pheight="56" pwidth="87" rowspan="1" style="txt-align:center;" weightx="0.5" weighty="1.0"/>
                <param anchor="center" colspan="1" fill="none" name="" oid="MCR_6" pheight="22" pwidth="75" rowspan="1" style="txt-align:north;" weightx="0.5" weighty="0.5" width="75"/>
-               <dropspot colspan="1" fill="both" pheight="56" pwidth="109" rowspan="1" weightx="1.0" weighty="1.0"/>
-               <dropspot colspan="1" fill="both" pheight="56" pwidth="109" rowspan="1" weightx="1.0" weighty="1.0"/>
-               <dropspot colspan="1" fill="both" pheight="56" pwidth="109" rowspan="1" weightx="1.0" weighty="1.0"/>
-               <dropspot colspan="1" fill="both" pheight="56" pwidth="109" rowspan="1" weightx="1.0" weighty="1.0"/>
-               <dropspot colspan="1" fill="both" pheight="56" pwidth="109" rowspan="1" weightx="1.0" weighty="1.0"/>
-               <dropspot colspan="1" fill="both" pheight="56" pwidth="109" rowspan="1" weightx="1.0" weighty="1.0"/>
-               <dropspot colspan="1" fill="both" pheight="56" pwidth="109" rowspan="1" weightx="1.0" weighty="1.0"/>
-               <dropspot colspan="1" fill="both" pheight="56" pwidth="109" rowspan="1" weightx="1.0" weighty="1.0"/>
+               <label colspan="1" fill="both" name="CR 1 - Mon 3" pheight="56" pwidth="124" rowspan="1" style="txt-align:center;" weightx="0.5" weighty="1.0"/>
+               <param anchor="center" colspan="1" fill="none" name="" oid="CR_1_Mon_3" pheight="22" pwidth="75" rowspan="1" style="txt-align:north;" weightx="0.5" weighty="0.5" width="75"/>
+               <dropspot colspan="1" fill="both" pheight="56" pwidth="105" rowspan="1" weightx="1.0" weighty="1.0"/>
+               <dropspot colspan="1" fill="both" pheight="56" pwidth="105" rowspan="1" weightx="1.0" weighty="1.0"/>
+               <dropspot colspan="1" fill="both" pheight="56" pwidth="105" rowspan="1" weightx="1.0" weighty="1.0"/>
+               <dropspot colspan="1" fill="both" pheight="56" pwidth="105" rowspan="1" weightx="1.0" weighty="1.0"/>
+               <dropspot colspan="1" fill="both" pheight="56" pwidth="105" rowspan="1" weightx="1.0" weighty="1.0"/>
+               <dropspot colspan="1" fill="both" pheight="56" pwidth="105" rowspan="1" weightx="1.0" weighty="1.0"/>
             </tr>
          </table>
       </abs>
