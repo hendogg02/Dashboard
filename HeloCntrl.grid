@@ -1,0 +1,36 @@
+<abs contexttype="opengear" gpiport="7788" gridaspect="false" gridheight="203" gridwidth="1304" keepalive="false" touch="true" virtualheight="203" virtualwidth="1304">
+   <meta>
+      <params>
+         <param access="1" maxlength="0" name="helo_ip1" oid="helo_ip1" type="STRING" value="10.103.17.211" widget="text"/>
+         <param access="1" maxlength="0" name="helo_ip2" oid="helo_ip2" type="STRING" value="" widget="text"/>
+      </params>
+   </meta>
+   <abs bottom="0" left="0" right="0" top="0" virtualheight="203" virtualwidth="1304">
+      <drawer bottom="0" left="0" right="0" tabfill="both" top="0">
+         <abs anchor="west" height="189" name="Settings" virtualheight="203" virtualwidth="558" width="598">
+            <param expand="true" height="50" left="280" oid="helo_ip1" top="25" width="200"/>
+            <label height="50" name="Primary Helo IP" right="320" style="txt-align:east;size:Big;" top="25" width="200"/>
+            <param expand="true" height="50" left="280" oid="helo_ip2" top="80" width="200"/>
+            <label height="50" name="Secondary Helo IP" right="320" style="txt-align:east;size:Big;" top="80" width="200"/>
+         </abs>
+         <abs anchor="center" height="193" virtualheight="203" virtualwidth="1264" width="1256">
+            <button buttontype="push" gpi="501" height="150" left="41" name="Stream Start Primary" top="26" width="250">
+               <task tasktype="ogscript">var heloIP = params.getValue('helo_ip1', 0);
+ogscript.asyncHTTP("http://"+heloIP+"/config?action=set&amp;paramid=eParamID_ReplicatorCommand&amp;value=3", "GET", "application/x-www-form-urlencoded", null, null);</task>
+            </button>
+            <button buttontype="push" gpi="502" height="150" left="302" name="Stream Stop Primary" top="26" width="250">
+               <task tasktype="ogscript">var heloIP = params.getValue('helo_ip1', 0);
+ogscript.asyncHTTP("http://"+heloIP+"/config?action=set&amp;paramid=eParamID_ReplicatorCommand&amp;value=4", "GET", "application/x-www-form-urlencoded", null, null);</task>
+            </button>
+            <button buttontype="push" gpi="503" height="150" left="641" name="Stream Start Secondary" top="26" width="250">
+               <task tasktype="ogscript">var heloIP = params.getValue('helo_ip2', 0);
+ogscript.asyncHTTP("http://"+heloIP+"/config?action=set&amp;paramid=eParamID_ReplicatorCommand&amp;value=3", "GET", "application/x-www-form-urlencoded", null, null);</task>
+            </button>
+            <button buttontype="push" gpi="504" height="150" left="902" name="Stream Stop Secondary" top="26" width="250">
+               <task tasktype="ogscript">var heloIP = params.getValue('helo_ip2', 0);
+ogscript.asyncHTTP("http://"+heloIP+"/config?action=set&amp;paramid=eParamID_ReplicatorCommand&amp;value=4", "GET", "application/x-www-form-urlencoded", null, null);</task>
+            </button>
+         </abs>
+      </drawer>
+   </abs>
+</abs>
