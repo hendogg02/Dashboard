@@ -3,11 +3,11 @@
       <params>
          <param access="1" maxlength="0" name="sony.port" oid="sony.port" type="STRING" value="20060" widget="default"/>
          <param access="1" maxlength="0" name="sony.power.toggle" oid="sony.power.toggle" type="STRING" value="2a 53 43 54 50 4f 57 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 0a" widget="default"/>
-         <param access="1" maxlength="0" name="sony.power.on" oid="sony.power.on" type="STRING" value="2a 53 43 50 4f 57 52 30 30 30 30 30 30 30 30 30 30 30 30 30 30 30 31" widget="default"/>
-         <param access="1" maxlength="0" name="sony.power.off" oid="sony.power.off" type="STRING" value="2a 53 43 50 4f 57 52 30 30 30 30 30 30 30 30 30 30 30 30 30 30 30 30" widget="default"/>
-         <param access="1" maxlength="0" name="sony.hdmi_1" oid="sony.hdmi_1" type="STRING" value="2a 53 43 49 4e 54 50 30 30 30 30 30 30 30 31 30 30 30 30 30 30 30 31" widget="default"/>
-         <param access="1" maxlength="0" name="sony.hdmi_2" oid="sony.hdmi_2" type="STRING" value="2a 53 43 49 4e 54 50 30 30 30 30 30 30 30 31 30 30 30 30 30 30 30 32" widget="default"/>
-         <param access="1" maxlength="0" name="sony.hdmi_3" oid="sony.hdmi_3" type="STRING" value="2a 53 43 49 4e 54 50 30 30 30 30 30 30 30 31 30 30 30 30 30 30 30 33" widget="default"/>
+         <param access="1" maxlength="0" name="sony.power.on" oid="sony.power.on" type="STRING" value="2a 53 43 50 4f 57 52 30 30 30 30 30 30 30 30 30 30 30 30 30 30 30 31 0a" widget="default"/>
+         <param access="1" maxlength="0" name="sony.power.off" oid="sony.power.off" type="STRING" value="2A 53 43 50 4F 57 52 30 30 30 30 30 30 30 30 30 30 30 30 30 30 30 30 0a" widget="default"/>
+         <param access="1" maxlength="0" name="sony.hdmi_1" oid="sony.hdmi_1" type="STRING" value="2A 53 43 49 4E 50 54 30 30 30 30 30 30 30 31 30 30 30 30 30 30 30 31 0a" widget="default"/>
+         <param access="1" maxlength="0" name="sony.hdmi_2" oid="sony.hdmi_2" type="STRING" value="2A 53 43 49 4E 50 54 30 30 30 30 30 30 30 31 30 30 30 30 30 30 30 32 0a" widget="default"/>
+         <param access="1" maxlength="0" name="sony.hdmi_3" oid="sony.hdmi_3" type="STRING" value="2A 53 43 49 4E 50 54 30 30 30 30 30 30 30 31 30 30 30 30 30 30 30 33 0a" widget="default"/>
          <param access="1" maxlength="0" name="MCR 1" oid="MCR_1" type="STRING" value="10.1.1.12" widget="text"/>
          <param access="1" maxlength="0" name="MCR 2" oid="MCR_2" type="STRING" value="10.1.1.13" widget="text"/>
          <param access="1" maxlength="0" name="MCR 3" oid="MCR_3" type="STRING" value="10.1.1.14" widget="text"/>
@@ -206,10 +206,7 @@ rosstalk.sendAsBytes(params.getValue('CR_7_Mon_4', 0), params.getValue('sony.por
 /*!!&lt;checksum&gt;7f77f1de4059fb57126a6b9fbd833885&lt;/checksum&gt;!!*/</task>
                </button>
                <button buttontype="push" colspan="1" fill="both" name="All On" pheight="84" pwidth="163" rowspan="1" weightx="1.0" weighty="1.0">
-                  <task tasktype="ogscript">
-
-
-/*! block id=1282,1289,1280,1319 !*/
+                  <task tasktype="ogscript">/*! block id=1282,1289,1280,1319 !*/
 rosstalk.sendAsBytes(params.getValue('CR_3_Mon_3', 0), params.getValue('sony.port', 0), params.getValue('sony.power.on', 0), null);
 /*! block id=1283,1288,1280,1319 !*/
 rosstalk.sendAsBytes(params.getValue('CR_3_Mon_2', 0), params.getValue('sony.port', 0), params.getValue('sony.power.on', 0), null);
@@ -346,10 +343,7 @@ rosstalk.sendAsBytes(params.getValue('CR_2_Mon_1', 0), params.getValue('sony.por
 /*!!&lt;checksum&gt;d9b28424e1ac468ab4d396b094a9e5a0&lt;/checksum&gt;!!*/</task>
                </button>
                <button buttontype="push" colspan="1" fill="both" name="All Off" pheight="84" pwidth="162" rowspan="1" weightx="1.0" weighty="1.0">
-                  <task tasktype="ogscript">
-
-
-/*! block id=1344,1345,1320,1321 !*/
+                  <task tasktype="ogscript">/*! block id=1344,1345,1320,1321 !*/
 rosstalk.sendAsBytes(params.getValue('CR_7_Mon_1', 0), params.getValue('sony.port', 0), params.getValue('sony.power.off', 0), null);
 /*! block id=1346,1347,1320,1321 !*/
 rosstalk.sendAsBytes(params.getValue('CR_7_Mon_2', 0), params.getValue('sony.port', 0), params.getValue('sony.power.off', 0), null);
@@ -511,10 +505,7 @@ rosstalk.sendAsBytes(params.getValue('CR_5_Mon_1', 0), params.getValue('sony.por
                      <table colspan="1" fill="both" pheight="168" pwidth="868" rowspan="1" weightx="1.0" weighty="1.0">
                         <tr>
                            <button buttontype="push" colspan="1" fill="both" name="CR 1 - Mon 1" pheight="168" pwidth="289" rowspan="1" weightx="1.0" weighty="1.0">
-                              <task tasktype="ogscript">
-
-
-/*! block id=1182,1179,1180,1181 !*/
+                              <task tasktype="ogscript">/*! block id=1182,1179,1180,1181 !*/
 rosstalk.sendAsBytes(params.getValue('CR_1_Mon_1', 0), params.getValue('sony.port', 0), params.getValue('sony.power.toggle', 0), null);
 /*!!
  &lt;block id="1182" type="ogscript_sendtcpbytes" x="283" y="10" w="318" HOST="ID:1179" PORT="ID:1180" BYTES="ID:1181" CALLBACK="null" /&gt;
@@ -665,10 +656,7 @@ rosstalk.sendAsBytes(params.getValue('CR_2_Mon_2', 0), params.getValue('sony.por
                      <table colspan="1" fill="both" pheight="168" pwidth="868" rowspan="1" weightx="1.0" weighty="1.0">
                         <tr>
                            <button buttontype="push" colspan="1" fill="both" name="CR 3 - Mon 1" pheight="168" pwidth="289" rowspan="1" weightx="1.0" weighty="1.0">
-                              <task tasktype="ogscript">
-
-
-/*! block id=1187,1184,1186,1185 !*/
+                              <task tasktype="ogscript">/*! block id=1187,1184,1186,1185 !*/
 rosstalk.sendAsBytes(params.getValue('CR_3_Mon_1', 0), params.getValue('sony.port', 0), params.getValue('sony.power.toggle', 0), null);
 /*!!
  &lt;block id="1187" type="ogscript_sendtcpbytes" x="283" y="10" w="318" HOST="ID:1184" PORT="ID:1186" BYTES="ID:1185" CALLBACK="null" /&gt;
@@ -679,10 +667,7 @@ rosstalk.sendAsBytes(params.getValue('CR_3_Mon_1', 0), params.getValue('sony.por
 /*!!&lt;checksum&gt;f262a890bfc429b89626a2270573b92d&lt;/checksum&gt;!!*/</task>
                            </button>
                            <button buttontype="push" colspan="1" fill="both" name="CR 3 - Mon 2" pheight="168" pwidth="289" rowspan="1" weightx="1.0" weighty="1.0">
-                              <task tasktype="ogscript">
-
-
-/*! block id=1205,1206,1207,1208 !*/
+                              <task tasktype="ogscript">/*! block id=1205,1206,1207,1208 !*/
 rosstalk.sendAsBytes(params.getValue('CR_3_Mon_2', 0), params.getValue('sony.port', 0), params.getValue('sony.power.toggle', 0), null);
 /*!!
  &lt;block id="1205" type="ogscript_sendtcpbytes" x="283" y="10" w="318" HOST="ID:1206" PORT="ID:1207" BYTES="ID:1208" CALLBACK="null" /&gt;
@@ -693,10 +678,7 @@ rosstalk.sendAsBytes(params.getValue('CR_3_Mon_2', 0), params.getValue('sony.por
 /*!!&lt;checksum&gt;949c95a374840db90da02827ea8ce161&lt;/checksum&gt;!!*/</task>
                            </button>
                            <button buttontype="push" colspan="1" fill="both" name="CR 3 - Mon 3" pheight="168" pwidth="289" rowspan="1" weightx="1.0" weighty="1.0">
-                              <task tasktype="ogscript">
-
-
-/*! block id=1209,1210,1211,1212 !*/
+                              <task tasktype="ogscript">/*! block id=1209,1210,1211,1212 !*/
 rosstalk.sendAsBytes(params.getValue('CR_3_Mon_3', 0), params.getValue('sony.port', 0), params.getValue('sony.power.toggle', 0), null);
 /*!!
  &lt;block id="1209" type="ogscript_sendtcpbytes" x="283" y="10" w="318" HOST="ID:1210" PORT="ID:1211" BYTES="ID:1212" CALLBACK="null" /&gt;
@@ -709,10 +691,7 @@ rosstalk.sendAsBytes(params.getValue('CR_3_Mon_3', 0), params.getValue('sony.por
                         </tr>
                      </table>
                      <button buttontype="push" colspan="1" fill="both" name="CR 3 - All Mon" pheight="168" pwidth="393" rowspan="1" weightx="0.5" weighty="1.0">
-                        <task tasktype="ogscript">
-
-
-/*! block id=1213,1216,1219,1220 !*/
+                        <task tasktype="ogscript">/*! block id=1213,1216,1219,1220 !*/
 rosstalk.sendAsBytes(params.getValue('CR_3_Mon_1', 0), params.getValue('sony.port', 0), params.getValue('sony.power.toggle', 0), null);
 /*! block id=1214,1217,1219,1220 !*/
 rosstalk.sendAsBytes(params.getValue('CR_3_Mon_2', 0), params.getValue('sony.port', 0), params.getValue('sony.power.toggle', 0), null);
@@ -759,10 +738,7 @@ rosstalk.sendAsBytes(params.getValue('CR_3_Mon_3', 0), params.getValue('sony.por
                      <table colspan="1" fill="both" pheight="168" pwidth="836" rowspan="1" weightx="1.0" weighty="1.0">
                         <tr>
                            <button buttontype="push" colspan="1" fill="both" name="CR 4 - Mon 1" pheight="168" pwidth="418" rowspan="1" weightx="1.0" weighty="1.0">
-                              <task tasktype="ogscript">
-
-
-/*! block id=1221,1222,1223,1224 !*/
+                              <task tasktype="ogscript">/*! block id=1221,1222,1223,1224 !*/
 rosstalk.sendAsBytes(params.getValue('CR_4_Mon_1', 0), params.getValue('sony.port', 0), params.getValue('sony.power.toggle', 0), null);
 /*!!
  &lt;block id="1221" type="ogscript_sendtcpbytes" x="283" y="10" w="318" HOST="ID:1222" PORT="ID:1223" BYTES="ID:1224" CALLBACK="null" /&gt;
@@ -773,10 +749,7 @@ rosstalk.sendAsBytes(params.getValue('CR_4_Mon_1', 0), params.getValue('sony.por
 /*!!&lt;checksum&gt;14d7b14bed6d1086c4c835812e860b1a&lt;/checksum&gt;!!*/</task>
                            </button>
                            <button buttontype="push" colspan="1" fill="both" name="CR 4 - Mon 2" pheight="168" pwidth="418" rowspan="1" weightx="1.0" weighty="1.0">
-                              <task tasktype="ogscript">
-
-
-/*! block id=1225,1226,1227,1228 !*/
+                              <task tasktype="ogscript">/*! block id=1225,1226,1227,1228 !*/
 rosstalk.sendAsBytes(params.getValue('CR_4_Mon_2', 0), params.getValue('sony.port', 0), params.getValue('sony.power.toggle', 0), null);
 /*!!
  &lt;block id="1225" type="ogscript_sendtcpbytes" x="283" y="10" w="318" HOST="ID:1226" PORT="ID:1227" BYTES="ID:1228" CALLBACK="null" /&gt;
@@ -789,10 +762,7 @@ rosstalk.sendAsBytes(params.getValue('CR_4_Mon_2', 0), params.getValue('sony.por
                         </tr>
                      </table>
                      <button buttontype="push" colspan="1" fill="both" name="CR 4 - All Mon" pheight="168" pwidth="426" rowspan="1" weightx="0.5" weighty="1.0">
-                        <task tasktype="ogscript">
-
-
-/*! block id=1229,1231,1233,1234 !*/
+                        <task tasktype="ogscript">/*! block id=1229,1231,1233,1234 !*/
 rosstalk.sendAsBytes(params.getValue('CR_4_Mon_1', 0), params.getValue('sony.port', 0), params.getValue('sony.power.toggle', 0), null);
 /*! block id=1230,1232,1233,1234 !*/
 rosstalk.sendAsBytes(params.getValue('CR_4_Mon_2', 0), params.getValue('sony.port', 0), params.getValue('sony.power.toggle', 0), null);
@@ -829,10 +799,7 @@ rosstalk.sendAsBytes(params.getValue('CR_4_Mon_2', 0), params.getValue('sony.por
                      <table colspan="1" fill="both" pheight="168" pwidth="1262" rowspan="1" weightx="1.0" weighty="1.0">
                         <tr>
                            <button buttontype="push" colspan="1" fill="both" name="CR 5 - Mon 1" pheight="168" pwidth="1262" rowspan="1" weightx="1.0" weighty="1.0">
-                              <task tasktype="ogscript">
-
-
-/*! block id=1235,1236,1237,1238 !*/
+                              <task tasktype="ogscript">/*! block id=1235,1236,1237,1238 !*/
 rosstalk.sendAsBytes(params.getValue('CR_5_Mon_1', 0), params.getValue('sony.port', 0), params.getValue('sony.power.toggle', 0), null);
 /*!!
  &lt;block id="1235" type="ogscript_sendtcpbytes" x="283" y="10" w="318" HOST="ID:1236" PORT="ID:1237" BYTES="ID:1238" CALLBACK="null" /&gt;
@@ -874,7 +841,7 @@ rosstalk.sendAsBytes(params.getValue('CR_5_Mon_1', 0), params.getValue('sony.por
             <abs height="168" virtualheight="168" virtualwidth="1262" width="1235">
                <table bottom="0" left="0" right="0" top="0">
                   <tr>
-                     <table colspan="1" fill="both" pheight="168" pwidth="965" rowspan="1" weightx="1.0" weighty="1.0">
+                     <table colspan="1" fill="both" pheight="168" pwidth="966" rowspan="1" weightx="1.0" weighty="1.0">
                         <tr>
                            <button buttontype="push" colspan="3" fill="both" name="Mon 1" pheight="42" pwidth="321" rowspan="1" weightx="1.0" weighty="1.0">
                               <task tasktype="ogscript">/*! block id=1051,1054,1052,1053 !*/
@@ -1148,8 +1115,11 @@ rosstalk.sendAsBytes(params.getValue('MCR_6', 0), params.getValue('sony.port', 0
                            </button>
                         </tr>
                      </table>
-                     <button buttontype="push" colspan="1" fill="both" name="All MCR Mon" pheight="168" pwidth="296" rowspan="1" weightx="0.50" weighty="1.0">
-                        <task tasktype="ogscript">/*! block id=1088,1080,1082,1083 !*/
+                     <button buttontype="push" colspan="1" fill="both" name="All MCR Mon" pheight="168" pwidth="296" rowspan="2" width="296">
+                        <task tasktype="ogscript">
+
+
+/*! block id=1088,1080,1082,1083 !*/
 rosstalk.sendAsBytes(params.getValue('MCR_5', 0), params.getValue('sony.port', 0), params.getValue('sony.power.toggle', 0), null);
 /*! block id=1089,1081,1082,1083 !*/
 rosstalk.sendAsBytes(params.getValue('MCR_6', 0), params.getValue('sony.port', 0), params.getValue('sony.power.toggle', 0), null);
@@ -1157,8 +1127,8 @@ rosstalk.sendAsBytes(params.getValue('MCR_6', 0), params.getValue('sony.port', 0
 rosstalk.sendAsBytes(params.getValue('MCR_1', 0), params.getValue('sony.port', 0), params.getValue('sony.power.toggle', 0), null);
 /*! block id=1085,1077,1082,1083 !*/
 rosstalk.sendAsBytes(params.getValue('MCR_2', 0), params.getValue('sony.port', 0), params.getValue('sony.power.toggle', 0), null);
-/*! block id=1086,1078,1082 !*/
-rosstalk.sendAsBytes(params.getValue('MCR_3', 0), params.getValue('sony.port', 0), "", null);
+/*! block id=1086,1078,1082,1083 !*/
+rosstalk.sendAsBytes(params.getValue('MCR_3', 0), params.getValue('sony.port', 0), params.getValue('sony.power.toggle', 0), null);
 /*! block id=1087,1079,1082,1083 !*/
 rosstalk.sendAsBytes(params.getValue('MCR_4', 0), params.getValue('sony.port', 0), params.getValue('sony.power.toggle', 0), null);
 /*!!
@@ -1178,15 +1148,16 @@ rosstalk.sendAsBytes(params.getValue('MCR_4', 0), params.getValue('sony.port', 0
 &lt;block id="1077" type="param__top&amp;amp;MCR 2 (MCR_2)[0]" x="10" y="554" w="243" SET="" /&gt;
 &lt;block id="1082" type="param__top&amp;amp;sony.port (sony.port)[0]" x="10" y="72" w="243" SET="" /&gt;
 &lt;block id="1083" type="param__top&amp;amp;sony.power.toggle (sony.power.toggle)[0]" x="10" y="134" w="243" SET="" /&gt;
-&lt;block id="1086" type="ogscript_sendtcpbytes" x="283" y="718" w="318" HOST="ID:1078" PORT="ID:1082" BYTES="" CALLBACK="null" /&gt;
+&lt;block id="1086" type="ogscript_sendtcpbytes" x="283" y="718" w="318" HOST="ID:1078" PORT="ID:1082" BYTES="ID:1083" CALLBACK="null" /&gt;
 &lt;block id="1078" type="param__top&amp;amp;MCR 3 (MCR_3)[0]" x="10" y="718" w="243" SET="" /&gt;
 &lt;block id="1082" type="param__top&amp;amp;sony.port (sony.port)[0]" x="10" y="72" w="243" SET="" /&gt;
+&lt;block id="1083" type="param__top&amp;amp;sony.power.toggle (sony.power.toggle)[0]" x="10" y="134" w="243" SET="" /&gt;
 &lt;block id="1087" type="ogscript_sendtcpbytes" x="283" y="882" w="318" HOST="ID:1079" PORT="ID:1082" BYTES="ID:1083" CALLBACK="null" /&gt;
 &lt;block id="1079" type="param__top&amp;amp;MCR 4 (MCR_4)[0]" x="10" y="882" w="243" SET="" /&gt;
 &lt;block id="1082" type="param__top&amp;amp;sony.port (sony.port)[0]" x="10" y="72" w="243" SET="" /&gt;
 &lt;block id="1083" type="param__top&amp;amp;sony.power.toggle (sony.power.toggle)[0]" x="10" y="134" w="243" SET="" /&gt;
 !!*/
-/*!!&lt;checksum&gt;719b5673dadc3a31d5dfcd1442ea0171&lt;/checksum&gt;!!*/</task>
+/*!!&lt;checksum&gt;59ab68649092087513224e1426f201fe&lt;/checksum&gt;!!*/</task>
                      </button>
                   </tr>
                </table>
@@ -1276,10 +1247,7 @@ rosstalk.sendAsBytes(params.getValue('CR_7_Mon_1', 0), params.getValue('sony.por
 /*!!&lt;checksum&gt;dee75cde3b46ac730a5ecc0990cfde4b&lt;/checksum&gt;!!*/</task>
                            </button>
                            <button buttontype="push" colspan="1" fill="both" name="HDMI 1" pheight="42" pwidth="107" rowspan="1" weightx="1.0" weighty="1.0">
-                              <task tasktype="ogscript">
-
-
-/*! block id=1366,1369,1368,1367 !*/
+                              <task tasktype="ogscript">/*! block id=1366,1369,1368,1367 !*/
 rosstalk.sendAsBytes(params.getValue('CR_7_Mon_2', 0), params.getValue('sony.port', 0), params.getValue('sony.hdmi_1', 0), null);
 /*!!
  &lt;block id="1366" type="ogscript_sendtcpbytes" x="283" y="10" w="318" HOST="ID:1369" PORT="ID:1368" BYTES="ID:1367" CALLBACK="null" /&gt;
@@ -1290,10 +1258,7 @@ rosstalk.sendAsBytes(params.getValue('CR_7_Mon_2', 0), params.getValue('sony.por
 /*!!&lt;checksum&gt;9d5c98cedfeda4baef9b89a7ce5fe2cc&lt;/checksum&gt;!!*/</task>
                            </button>
                            <button buttontype="push" colspan="1" fill="both" name="HDMI 2" pheight="42" pwidth="107" rowspan="1" weightx="1.0" weighty="1.0">
-                              <task tasktype="ogscript">
-
-
-/*! block id=1370,1371,1373,1372 !*/
+                              <task tasktype="ogscript">/*! block id=1370,1371,1373,1372 !*/
 rosstalk.sendAsBytes(params.getValue('CR_7_Mon_2', 0), params.getValue('sony.port', 0), params.getValue('sony.hdmi_2', 0), null);
 /*!!
  &lt;block id="1370" type="ogscript_sendtcpbytes" x="283" y="10" w="318" HOST="ID:1371" PORT="ID:1373" BYTES="ID:1372" CALLBACK="null" /&gt;
@@ -1304,10 +1269,7 @@ rosstalk.sendAsBytes(params.getValue('CR_7_Mon_2', 0), params.getValue('sony.por
 /*!!&lt;checksum&gt;bedd18083bc30efb7a2271354bd0b255&lt;/checksum&gt;!!*/</task>
                            </button>
                            <button buttontype="push" colspan="1" fill="both" name="HDMI 3" pheight="42" pwidth="107" rowspan="1" weightx="1.0" weighty="1.0">
-                              <task tasktype="ogscript">
-
-
-/*! block id=1374,1375,1377,1376 !*/
+                              <task tasktype="ogscript">/*! block id=1374,1375,1377,1376 !*/
 rosstalk.sendAsBytes(params.getValue('CR_7_Mon_2', 0), params.getValue('sony.port', 0), params.getValue('sony.hdmi_3', 0), null);
 /*!!
  &lt;block id="1374" type="ogscript_sendtcpbytes" x="283" y="10" w="318" HOST="ID:1375" PORT="ID:1377" BYTES="ID:1376" CALLBACK="null" /&gt;
@@ -1355,10 +1317,7 @@ rosstalk.sendAsBytes(params.getValue('CR_7_Mon_5', 0), params.getValue('sony.por
                         </tr>
                         <tr>
                            <button buttontype="push" colspan="1" fill="both" name="HDMI 1" pheight="42" pwidth="107" rowspan="1" weightx="1.0" weighty="1.0">
-                              <task tasktype="ogscript">
-
-
-/*! block id=1378,1381,1380,1379 !*/
+                              <task tasktype="ogscript">/*! block id=1378,1381,1380,1379 !*/
 rosstalk.sendAsBytes(params.getValue('CR_7_Mon_3', 0), params.getValue('sony.port', 0), params.getValue('sony.hdmi_1', 0), null);
 /*!!
  &lt;block id="1378" type="ogscript_sendtcpbytes" x="283" y="10" w="318" HOST="ID:1381" PORT="ID:1380" BYTES="ID:1379" CALLBACK="null" /&gt;
@@ -1369,10 +1328,7 @@ rosstalk.sendAsBytes(params.getValue('CR_7_Mon_3', 0), params.getValue('sony.por
 /*!!&lt;checksum&gt;842e8752ff46e5277cb7a42d3ee85f4e&lt;/checksum&gt;!!*/</task>
                            </button>
                            <button buttontype="push" colspan="1" fill="both" name="HDMI 2" pheight="42" pwidth="107" rowspan="1" weightx="1.0" weighty="1.0">
-                              <task tasktype="ogscript">
-
-
-/*! block id=1385,1382,1384,1383 !*/
+                              <task tasktype="ogscript">/*! block id=1385,1382,1384,1383 !*/
 rosstalk.sendAsBytes(params.getValue('CR_7_Mon_3', 0), params.getValue('sony.port', 0), params.getValue('sony.hdmi_2', 0), null);
 /*!!
  &lt;block id="1385" type="ogscript_sendtcpbytes" x="283" y="10" w="318" HOST="ID:1382" PORT="ID:1384" BYTES="ID:1383" CALLBACK="null" /&gt;
@@ -1383,10 +1339,7 @@ rosstalk.sendAsBytes(params.getValue('CR_7_Mon_3', 0), params.getValue('sony.por
 /*!!&lt;checksum&gt;dc36917e992e1a5eb354721a7edbc246&lt;/checksum&gt;!!*/</task>
                            </button>
                            <button buttontype="push" colspan="1" fill="both" name="HDMI 3" pheight="42" pwidth="107" rowspan="1" weightx="1.0" weighty="1.0">
-                              <task tasktype="ogscript">
-
-
-/*! block id=1389,1386,1388,1387 !*/
+                              <task tasktype="ogscript">/*! block id=1389,1386,1388,1387 !*/
 rosstalk.sendAsBytes(params.getValue('CR_7_Mon_3', 0), params.getValue('sony.port', 0), params.getValue('sony.hdmi_3', 0), null);
 /*!!
  &lt;block id="1389" type="ogscript_sendtcpbytes" x="283" y="10" w="318" HOST="ID:1386" PORT="ID:1388" BYTES="ID:1387" CALLBACK="null" /&gt;
@@ -1397,10 +1350,7 @@ rosstalk.sendAsBytes(params.getValue('CR_7_Mon_3', 0), params.getValue('sony.por
 /*!!&lt;checksum&gt;0e526154f77404bb5a4422e553e82a8f&lt;/checksum&gt;!!*/</task>
                            </button>
                            <button buttontype="push" colspan="1" fill="both" name="HDMI 1" pheight="42" pwidth="107" rowspan="1" weightx="1.0" weighty="1.0">
-                              <task tasktype="ogscript">
-
-
-/*! block id=1391,1390,1393,1392 !*/
+                              <task tasktype="ogscript">/*! block id=1391,1390,1393,1392 !*/
 rosstalk.sendAsBytes(params.getValue('CR_7_Mon_4', 0), params.getValue('sony.port', 0), params.getValue('sony.hdmi_1', 0), null);
 /*!!
  &lt;block id="1391" type="ogscript_sendtcpbytes" x="283" y="10" w="318" HOST="ID:1390" PORT="ID:1393" BYTES="ID:1392" CALLBACK="null" /&gt;
@@ -1411,10 +1361,7 @@ rosstalk.sendAsBytes(params.getValue('CR_7_Mon_4', 0), params.getValue('sony.por
 /*!!&lt;checksum&gt;13d529c7d6bbe68e26a5785ab5fe0fe4&lt;/checksum&gt;!!*/</task>
                            </button>
                            <button buttontype="push" colspan="1" fill="both" name="HDMI 2" pheight="42" pwidth="107" rowspan="1" weightx="1.0" weighty="1.0">
-                              <task tasktype="ogscript">
-
-
-/*! block id=1395,1394,1397,1396 !*/
+                              <task tasktype="ogscript">/*! block id=1395,1394,1397,1396 !*/
 rosstalk.sendAsBytes(params.getValue('CR_7_Mon_4', 0), params.getValue('sony.port', 0), params.getValue('sony.hdmi_2', 0), null);
 /*!!
  &lt;block id="1395" type="ogscript_sendtcpbytes" x="283" y="10" w="318" HOST="ID:1394" PORT="ID:1397" BYTES="ID:1396" CALLBACK="null" /&gt;
@@ -1425,10 +1372,7 @@ rosstalk.sendAsBytes(params.getValue('CR_7_Mon_4', 0), params.getValue('sony.por
 /*!!&lt;checksum&gt;cdd30ca168b5f8cadc83cab68c7768b7&lt;/checksum&gt;!!*/</task>
                            </button>
                            <button buttontype="push" colspan="1" fill="both" name="HDMI 3" pheight="42" pwidth="107" rowspan="1" weightx="1.0" weighty="1.0">
-                              <task tasktype="ogscript">
-
-
-/*! block id=1399,1398,1401,1400 !*/
+                              <task tasktype="ogscript">/*! block id=1399,1398,1401,1400 !*/
 rosstalk.sendAsBytes(params.getValue('CR_7_Mon_4', 0), params.getValue('sony.port', 0), params.getValue('sony.hdmi_3', 0), null);
 /*!!
  &lt;block id="1399" type="ogscript_sendtcpbytes" x="283" y="10" w="318" HOST="ID:1398" PORT="ID:1401" BYTES="ID:1400" CALLBACK="null" /&gt;
@@ -1439,10 +1383,7 @@ rosstalk.sendAsBytes(params.getValue('CR_7_Mon_4', 0), params.getValue('sony.por
 /*!!&lt;checksum&gt;e093c73b48dab2ab9358873b72f86109&lt;/checksum&gt;!!*/</task>
                            </button>
                            <button buttontype="push" colspan="1" fill="both" name="HDMI 1" pheight="42" pwidth="107" rowspan="1" weightx="1.0" weighty="1.0">
-                              <task tasktype="ogscript">
-
-
-/*! block id=1405,1402,1404,1403 !*/
+                              <task tasktype="ogscript">/*! block id=1405,1402,1404,1403 !*/
 rosstalk.sendAsBytes(params.getValue('CR_7_Mon_5', 0), params.getValue('sony.port', 0), params.getValue('sony.hdmi_1', 0), null);
 /*!!
  &lt;block id="1405" type="ogscript_sendtcpbytes" x="283" y="10" w="318" HOST="ID:1402" PORT="ID:1404" BYTES="ID:1403" CALLBACK="null" /&gt;
@@ -1453,10 +1394,7 @@ rosstalk.sendAsBytes(params.getValue('CR_7_Mon_5', 0), params.getValue('sony.por
 /*!!&lt;checksum&gt;1324a9152a705f438d22b3d2db993375&lt;/checksum&gt;!!*/</task>
                            </button>
                            <button buttontype="push" colspan="1" fill="both" name="HDMI 2" pheight="42" pwidth="107" rowspan="1" weightx="1.0" weighty="1.0">
-                              <task tasktype="ogscript">
-
-
-/*! block id=1406,1407,1409,1408 !*/
+                              <task tasktype="ogscript">/*! block id=1406,1407,1409,1408 !*/
 rosstalk.sendAsBytes(params.getValue('CR_7_Mon_5', 0), params.getValue('sony.port', 0), params.getValue('sony.hdmi_2', 0), null);
 /*!!
  &lt;block id="1406" type="ogscript_sendtcpbytes" x="283" y="10" w="318" HOST="ID:1407" PORT="ID:1409" BYTES="ID:1408" CALLBACK="null" /&gt;
@@ -1519,6 +1457,5 @@ rosstalk.sendAsBytes(params.getValue('CR_7_Mon_1', 0), params.getValue('sony.por
             </abs>
          </drawer>
       </abs>
-      
    </tab>
 </abs>
