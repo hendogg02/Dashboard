@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><abs contexttype="opengear" gridaspect="false" gridheight="203" gridwidth="1304" keepalive="false" touch="true" virtualheight="203" virtualwidth="1304">
+<abs contexttype="opengear" gridaspect="false" gridheight="203" gridwidth="1304" keepalive="false" touch="true" virtualheight="203" virtualwidth="1304">
    <meta>
       <params>
          <param access="1" maxlength="0" name="sony.port" oid="sony.port" type="STRING" value="20060" widget="default"/>
