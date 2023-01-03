@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><abs contexttype="opengear" gridsize="20" id="_top" sharedsession="true" style="" virtualheight="946" virtualwidth="1507">
+<abs contexttype="opengear" gridsize="20" id="_top" sharedsession="true" style="" virtualheight="946" virtualwidth="1507">
    <button buttontype="push" height="200" left="80" name="Web OTT" top="360" width="200">
       <task tasktype="ogscript">
 
