@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?><abs contexttype="opengear" gridaspect="false" keepalive="true" gridheight="203" gridwidth="1304" touch="true" virtualheight="203" virtualwidth="1304">
+    <meta>
+        <params>
+            <param access="1" maxlength="0" name="Relay Host" oid="cfg.relay.host" type="STRING" value="" widget="text"/>
+            <param access="1" name="Relay Port" oid="cfg.relay.port" type="INT32" constrainttype="INT_NULL" value="8090" widget="spinner"/>
+        </params>
+        <style id="CmdBtn" value="bg#buttonbg;fg#panelfg;bdr:none;txt-align:center;"/>
+        <api><![CDATA[
+var MAX_OUTLETS_DISPLAY = 48;
+var STYLE_ON  = 'bg#green;fg#panelfg;bdr:none;txt-align:center;';
+var STYLE_OFF = 'bg#red;fg#panelfg;bdr:none;txt-align:center;';
+
+// --- Escaping helpers (same pattern as Sony Ctrl.grid) ---
+
+function escapeXmlAttr(s) {
+   return String(s == null ? '' : s)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+function escapeXmlText(s) {
+   return String(s == null ? '' : s)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+function jsStr(s) {
+   return "'" + String(s).replace(/\\/g, '\\\\').replace(/'/g, "\\'") + "'";
+}
+
+function taskTag(code) {
+   return '<task tasktype="ogscript">' + escapeXmlText(code) + '</task>';
+}
+
+function sanitizeId(s) {
+   return String(s).replace(/[^A-Za-z0-9_-]/g, '_');
+}
+
+function tabIdFor(pduId) {
+   return 'pdu_' + sanitizeId(pduId);
+}
+
+function relayBase() {
+   return 'http://' + params.getValue('cfg.relay.host', 0) + ':' + params.getValue('cfg.relay.port', 0);
+}
+
+function setDiscoveryStatus(text) {
+   ogscript.rename('discoveryStatusLabel', text);
+}
+
+// --- Discovery + full tab rebuild. Mirrors Sony Ctrl.grid's
+//     rebuildFromConfig(): build one page per PDU, append Settings last,
+//     replace the whole <tab>'s children in one ogscript.setXML() call. ---
+
+function discoverAndRebuild() {
+   var host = params.getValue('cfg.relay.host', 0);
+   if (!host) {
+      setDiscoveryStatus('Set the relay host/port below, then Connect.');
+      return;
+   }
+   setDiscoveryStatus('Looking for PDUs...');
+   ogscript.asyncHTTP(relayBase() + '/pdu/list', 'GET', 'text/plain', null, onPduListLoaded);
+}
+
+function onPduListLoaded(response) {
+   var pdus = [];
+   if (response) {
+      var lines = response.split('\n');
+      for (var i = 0; i < lines.length; i++) {
+         var line = lines[i].replace(/\r/g, '');
+         if (line.length === 0) continue;
+         var idx = line.indexOf('|');
+         if (idx < 0) continue;
+         pdus.push({ id: line.substring(0, idx), label: line.substring(idx + 1), outlets: [] });
+      }
+   }
+   ogscript.putObject('pdus', pdus);
+   rebuildTabs();
+
+   if (pdus.length === 0) {
+      setDiscoveryStatus('No PDUs found - check the relay host/port and its UniFi credentials.');
+      return;
+   }
+   setDiscoveryStatus(pdus.length + ' PDU(s) found.');
+   ogscript.asyncExec(refreshAllOutlets, 500);
+}
+
+function buildOutletButtonXml(pdu, outletIdx) {
+   var o = pdu.outlets[outletIdx];
+   var btnId = tabIdFor(pdu.id) + '_o' + o.index;
+   var style = o.state === 1 ? STYLE_ON : STYLE_OFF;
+   return '<button id="' + btnId + '" buttontype="push" name="' + escapeXmlAttr(o.name) +
+      '" style="' + style + '">' +
+      taskTag('confirmReboot(' + jsStr(pdu.id) + ',' + o.index + ',' + jsStr(btnId) + ',' + jsStr(o.name) + ');') + '</button>';
+}
+
+// Grid dimensions are derived from the outlet count, not hardcoded - a
+// 9-outlet PDU and a 20-outlet PDU each get a layout sized to fit their own
+// tab cleanly, capped at 4 rows so buttons stay tappable (~42px minimum).
+// simplegrid (not table) is what actually gives every cell the same size -
+// table sizes each column to its widest content, which made buttons next to
+// long outlet names wider than buttons next to short ones.
+function buildPduPageXml(pdu) {
+   var outlets = (pdu.outlets || []).slice(0, MAX_OUTLETS_DISPLAY);
+   var n = outlets.length;
+   var cols = n === 0 ? 1 : Math.max(Math.ceil(n / 4), Math.min(n, 10));
+   var rows = n === 0 ? 1 : Math.ceil(n / cols);
+
+   var buttonsXml = '';
+   for (var i = 0; i < n; i++) {
+      buttonsXml += buildOutletButtonXml(pdu, i);
+   }
+
+   return '<abs id="' + tabIdFor(pdu.id) + '" name="' + escapeXmlAttr(pdu.label) + '" virtualheight="170" virtualwidth="1302">' +
+      '<simplegrid left="0" top="0" width="1264" height="170" rows="' + rows + '" cols="' + cols + '">' +
+         buttonsXml +
+      '</simplegrid>' +
+   '</abs>';
+}
+
+function buildSettingsPageXml() {
+   return '<abs name="Settings" virtualheight="170" virtualwidth="1302">' +
+      '<label left="20" top="8" width="1264" height="24" name="One relay auto-discovers every USP-PDU-Pro on your UniFi controller - tabs appear above as they are found." style="font:normal;"/>' +
+      '<param oid="cfg.relay.host" left="20" top="40" width="360" height="30" showlabel="true"/>' +
+      '<param oid="cfg.relay.port" left="390" top="40" width="200" height="30" showlabel="true"/>' +
+      '<button buttontype="push" name="Connect / Refresh PDUs" left="600" top="40" width="240" height="34" style="style:CmdBtn;bg#green;">' +
+         taskTag('discoverAndRebuild();') + '</button>' +
+      '<label id="discoveryStatusLabel" left="20" top="86" width="1264" height="28" name="Connecting..." style="bg#listbg;fg#panelfg;bdr:etched;txt-align:center;"/>' +
+   '</abs>';
+}
+
+function rebuildTabs(reopenPduId) {
+   var pdus = ogscript.getObject('pdus') || [];
+   var xml = '';
+   for (var i = 0; i < pdus.length; i++) {
+      xml += buildPduPageXml(pdus[i]);
+   }
+   xml += buildSettingsPageXml();
+   ogscript.setXML('pduTabs', xml);
+   if (reopenPduId) {
+      ogscript.asyncExec(function() { ogscript.reveal(tabIdFor(reopenPduId)); }, 300);
+   }
+}
+
+// --- Outlet state: rebuild structure only if the outlet COUNT changed
+//     (first load); otherwise just relabel/recolor the existing buttons in
+//     place, exactly like Sony Ctrl.grid's power-poll never touches tab
+//     structure once it's built. ---
+
+function refreshAllOutlets() {
+   var pdus = ogscript.getObject('pdus') || [];
+   for (var i = 0; i < pdus.length; i++) refreshOutletsFor(pdus[i].id);
+}
+
+function refreshOutletsFor(pduId) {
+   ogscript.asyncHTTP(relayBase() + '/pdu/' + pduId + '/outlets', 'GET', 'text/plain', null,
+      function(response) { onOutletsLoaded(pduId, response); });
+}
+
+function onOutletsLoaded(pduId, response) {
+   var outlets = [];
+   if (response) {
+      var lines = response.split('\n');
+      for (var i = 0; i < lines.length; i++) {
+         var line = lines[i].replace(/\r/g, '');
+         if (line.length === 0) continue;
+         var parts = line.split('|');
+         if (parts.length < 3) continue;
+         outlets.push({ index: parseInt(parts[0], 10), name: parts[1], state: parseInt(parts[2], 10) });
+      }
+   }
+
+   var pdus = ogscript.getObject('pdus') || [];
+   var structureChanged = false;
+   for (var j = 0; j < pdus.length; j++) {
+      if (pdus[j].id === pduId) {
+         if (pdus[j].outlets.length !== outlets.length) structureChanged = true;
+         pdus[j].outlets = outlets;
+         break;
+      }
+   }
+   ogscript.putObject('pdus', pdus);
+
+   if (structureChanged) {
+      rebuildTabs();
+   } else {
+      applyOutletStyles(pduId, outlets);
+   }
+}
+
+function applyOutletStyles(pduId, outlets) {
+   for (var i = 0; i < outlets.length; i++) {
+      var o = outlets[i];
+      var btnId = tabIdFor(pduId) + '_o' + o.index;
+      ogscript.rename(btnId, o.name);
+      ogscript.setStyle(btnId, o.state === 1 ? STYLE_ON : STYLE_OFF);
+   }
+}
+
+function cycleOutlet(pduId, outletIndex, btnId) {
+   ogscript.rename(btnId, 'Rebooting...');
+   ogscript.asyncHTTP(relayBase() + '/pdu/' + pduId + '/outlet/' + outletIndex + '/cycle', 'POST',
+      'text/plain', '', function(response) {
+         ogscript.asyncExec(function() { refreshOutletsFor(pduId); }, 3000);
+      });
+}
+
+// --- Reboot confirmation: outlet buttons no longer cycle directly - they
+//     stash the pending action and open the shared confirmPopup declared at
+//     the root. Its Reboot button calls confirmedReboot(); Cancel just
+//     hides the popup inline (see the static template). ---
+
+function confirmReboot(pduId, outletIndex, btnId, outletName) {
+   ogscript.putObject('pendingReboot', { pduId: pduId, outletIndex: outletIndex, btnId: btnId });
+   ogscript.rename('confirmMessage', 'Reboot ' + outletName + '?');
+   ogscript.reveal('confirmPopup');
+}
+
+function confirmedReboot() {
+   var pending = ogscript.getObject('pendingReboot');
+   ogscript.hide('confirmPopup');
+   if (!pending) return;
+   cycleOutlet(pending.pduId, pending.outletIndex, pending.btnId);
+}
+      ]]></api>
+        <ogscript handles="onload">rebuildTabs(); discoverAndRebuild(); ogscript.installTimer('outletPoll', true, 8000, 10000, refreshAllOutlets);</ogscript>
+    </meta>
+    <tab bottom="0" id="pduTabs" left="0" right="0" tabposition="south" top="0"/>
+    <popup id="confirmPopup" name="Confirm" left="400" top="10" width="1" height="1" visible="false">
+        <abs width="500" height="110">
+            <label id="confirmMessage" name="Reboot this outlet?" style="font:bold;txt-align:center;"
+                   left="10" top="2" width="480" height="30"/>
+            <button buttontype="push" name="Cancel" style="style:CmdBtn;" left="10" top="36" width="230" height="66">
+                <task tasktype="ogscript">ogscript.hide('confirmPopup');</task>
+            </button>
+            <button buttontype="push" name="Reboot" style="style:CmdBtn;bg#red;" left="250" top="36" width="230" height="66">
+                <task tasktype="ogscript">confirmedReboot();</task>
+            </button>
+        </abs>
+    </popup>
+</abs>
