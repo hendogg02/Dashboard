@@ -1,7 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?><abs style="bg#161D2B;" contexttype="opengear" gridaspect="false" gridheight="203" gridwidth="1304" keepalive="false" touch="true" virtualheight="203" virtualwidth="1304">
+<?xml version="1.0" encoding="UTF-8"?><abs contexttype="opengear" gridaspect="false" gridheight="203" gridwidth="1304" keepalive="false" style="bg#000000;" touch="true" virtualheight="203" virtualwidth="1304">
     <meta>
         <params>
             <param access="1" maxlength="0" name="TV Tab/Group" oid="cfg.tv.group" precision="-1" type="STRING_ARRAY" widget="text">
+                <value/>
                 <value/>
                 <value/>
                 <value/>
@@ -18,8 +19,10 @@
                 <value/>
                 <value/>
                 <value/>
+                <value/>
             </param>
             <param access="1" maxlength="0" name="TV IP Address" oid="cfg.tv.ip" precision="-1" type="STRING_ARRAY" widget="text">
+                <value/>
                 <value/>
                 <value/>
                 <value/>
@@ -33,29 +36,35 @@
                 <value/>
                 <value>top</value>
                 <value>top</value>
-                <value/>
+                <value>bottom</value>
+                <value>bottom</value>
+                <value>bottom</value>
+                <value>bottom</value>
             </param>
             <param access="1" maxlength="0" name="Rename Tab Input" oid="cfg.rename.input" type="STRING_ARRAY" widget="text">
                 <value/>
             </param>
             <param access="1" maxlength="0" name="New Tab Name" oid="cfg.newtab.name" type="STRING" value="" widget="text"/>
-            <param access="1" maxlength="0" name="Theme: Background" oid="cfg.theme.bg" type="STRING_ARRAY" widget="text">
-                <value>161D2B</value>
+            <param access="1" maxlength="0" name="Theme: Background (Sleek Black)" oid="cfg.theme.bg" precision="-1" type="STRING_ARRAY" widget="text">
+                <value>C7C6C6</value>
             </param>
-            <param access="1" maxlength="0" name="Theme: Card Background" oid="cfg.theme.card" type="STRING_ARRAY" widget="text">
-                <value>1F283A</value>
+            <param access="1" maxlength="0" name="Theme: Card Background (Sleek Black)" oid="cfg.theme.card" type="STRING_ARRAY" widget="text">
+                <value>000000</value>
             </param>
-            <param access="1" maxlength="0" name="Theme: Button" oid="cfg.theme.button" type="STRING_ARRAY" widget="text">
-                <value>28334A</value>
+            <param access="1" maxlength="0" name="Theme: Button (Truss Gray)" oid="cfg.theme.button" precision="-1" type="STRING_ARRAY" widget="text">
+                <value>111111</value>
             </param>
-            <param access="1" maxlength="0" name="Theme: Text" oid="cfg.theme.text" type="STRING_ARRAY" widget="text">
+            <param access="1" maxlength="0" name="Theme: Button Text (Sleek Black)" oid="cfg.theme.buttontext" precision="-1" type="STRING_ARRAY" widget="text">
                 <value>FFFFFF</value>
             </param>
-            <param access="1" maxlength="0" name="Theme: Accent" oid="cfg.theme.accent" type="STRING_ARRAY" widget="text">
-                <value>C4D600</value>
+            <param access="1" maxlength="0" name="Theme: Text (Haze Gray)" oid="cfg.theme.text" type="STRING_ARRAY" widget="text">
+                <value>F2F2F2</value>
             </param>
-            <param access="1" maxlength="0" name="Theme: Accent Text" oid="cfg.theme.accenttext" type="STRING_ARRAY" widget="text">
-                <value>28334A</value>
+            <param access="1" maxlength="0" name="Theme: Accent (White)" oid="cfg.theme.accent" precision="-1" type="STRING_ARRAY" widget="text">
+                <value>C7C6C6</value>
+            </param>
+            <param access="1" maxlength="0" name="Theme: Accent Text (Sleek Black)" oid="cfg.theme.accenttext" precision="-1" type="STRING_ARRAY" widget="text">
+                <value>000000</value>
             </param>
             <param access="1" maxlength="0" name="Theme: Logo URL" oid="cfg.theme.logo" type="STRING_ARRAY" widget="text">
                 <value/>
@@ -87,16 +96,17 @@ var MAX_TVS = 24;
 function themeVal(oid, fallback) {
    return params.getValue(oid, 0) || fallback;
 }
-function themeBg() { return themeVal('cfg.theme.bg', '161D2B'); }
-function themeCard() { return themeVal('cfg.theme.card', '1F283A'); }
-function themeButton() { return themeVal('cfg.theme.button', '28334A'); }
-function themeText() { return themeVal('cfg.theme.text', 'FFFFFF'); }
-function themeAccent() { return themeVal('cfg.theme.accent', 'C4D600'); }
-function themeAccentText() { return themeVal('cfg.theme.accenttext', '28334A'); }
+function themeBg() { return themeVal('cfg.theme.bg', '000000'); }
+function themeCard() { return themeVal('cfg.theme.card', '000000'); }
+function themeButton() { return themeVal('cfg.theme.button', 'C7C6C6'); }
+function themeButtonText() { return themeVal('cfg.theme.buttontext', '000000'); }
+function themeText() { return themeVal('cfg.theme.text', 'F2F2F2'); }
+function themeAccent() { return themeVal('cfg.theme.accent', 'FFFFFF'); }
+function themeAccentText() { return themeVal('cfg.theme.accenttext', '000000'); }
 function themeLogo() { return params.getValue('cfg.theme.logo', 0) || ''; }
 
 function cmdBtnStyle() {
-   return 'bg#' + themeButton() + ';fg#' + themeText() + ';bdr:none;txt-align:center;';
+   return 'bg#' + themeButton() + ';fg#' + themeButtonText() + ';bdr:none;txt-align:center;';
 }
 function accentBtnStyle() {
    return 'bg#' + themeAccent() + ';fg#' + themeAccentText() + ';bdr:none;txt-align:center;';
@@ -159,6 +169,18 @@ function settingsIdFor(groupName) {
 
 function mainIdFor(groupName) {
    return 'main_' + sanitizeId(groupName);
+}
+
+// A full rebuild of 'mainTabs' replaces every page, including whichever one
+// is currently selected, and doesn't remember the selection across that
+// swap - it snaps back to the first tab. Theme edits happen on the Setup
+// tab and trigger exactly this kind of full rebuild (colors are baked into
+// every generated page, not live-bindable), so re-reveal it afterward the
+// same way a renamed/edited group tab is kept open.
+function stayOnSetupTab() {
+   ogscript.asyncExec(function() {
+      ogscript.reveal('setupTab');
+   }, 500);
 }
 
 // --- Config: read the TV list out of the cfg.tv.* parallel arrays. A row
@@ -373,6 +395,76 @@ function hdmiBtnId(idx, hdmiNum) {
    return 'tv' + idx + '_hdmi' + hdmiNum;
 }
 
+function groupAllBtnId(groupName) {
+   return 'groupAll_' + sanitizeId(groupName);
+}
+
+function allPageGroupBtnId(groupName) {
+   return 'allPageGroup_' + sanitizeId(groupName);
+}
+
+// --- Aggregate power state: applyTvNotify only ever knows one TV's own
+//     POWR reply, but the "All <Group>"/"<Group> All"/"All On"/"All Off"
+//     buttons need to know every TV's state at once to show whether a
+//     whole group (or everything) is on. Each TV's last-known state is
+//     kept in a persisted map (survives tab rebuilds the same way
+//     ogscript.putObject/getObject is used elsewhere in this file) so the
+//     aggregate can be recomputed on every single-TV update. ---
+
+function getTvPowerMap() {
+   return ogscript.getObject('tvPowerState') || {};
+}
+
+function setTvPower(idx, isOn) {
+   var map = getTvPowerMap();
+   map[idx] = isOn;
+   ogscript.putObject('tvPowerState', map);
+}
+
+function getTvPower(idx) {
+   var map = getTvPowerMap();
+   return map.hasOwnProperty(idx) ? map[idx] : null;
+}
+
+function groupAllOn(groupName) {
+   var tvs = tvsInGroup(groupName);
+   if (tvs.length === 0) return false;
+   for (var i = 0; i < tvs.length; i++) {
+      if (getTvPower(tvs[i].index) !== true) return false;
+   }
+   return true;
+}
+
+function allTvsOn() {
+   var tvs = getConfiguredTvs();
+   if (tvs.length === 0) return false;
+   for (var i = 0; i < tvs.length; i++) {
+      if (getTvPower(tvs[i].index) !== true) return false;
+   }
+   return true;
+}
+
+function allTvsOff() {
+   var tvs = getConfiguredTvs();
+   if (tvs.length === 0) return false;
+   for (var i = 0; i < tvs.length; i++) {
+      if (getTvPower(tvs[i].index) !== false) return false;
+   }
+   return true;
+}
+
+function refreshMasterButtons() {
+   var tvs = getConfiguredTvs();
+   var groups = getGroups(tvs);
+   for (var i = 0; i < groups.length; i++) {
+      var style = groupAllOn(groups[i]) ? accentBtnStyle() : cmdBtnStyle();
+      ogscript.setStyle(groupAllBtnId(groups[i]), style);
+      ogscript.setStyle(allPageGroupBtnId(groups[i]), style);
+   }
+   ogscript.setStyle('allOnBtn', allTvsOn() ? accentBtnStyle() : cmdBtnStyle());
+   ogscript.setStyle('allOffBtn', allTvsOff() ? accentBtnStyle() : cmdBtnStyle());
+}
+
 function inptPayloadToHdmi(payload) {
    if (payload === '0000000100000001') return 1;
    if (payload === '0000000100000002') return 2;
@@ -385,7 +477,10 @@ function applyTvNotify(idx, text) {
    var inpt = extractField(text, 'INPT');
 
    if (powr !== null) {
-      ogscript.setStyle('tv' + idx, powr === '0000000000000001' ? accentBtnStyle() : cmdBtnStyle());
+      var isOn = powr === '0000000000000001';
+      ogscript.setStyle('tv' + idx, isOn ? accentBtnStyle() : cmdBtnStyle());
+      setTvPower(idx, isOn);
+      refreshMasterButtons();
    }
    if (inpt !== null) {
       var activeHdmi = inptPayloadToHdmi(inpt);
@@ -489,63 +584,74 @@ function buildTvBlockXml(tv, blockPheight) {
 }
 
 function buildGroupSettingsInnerXml(groupName, groupTvs) {
-   var showRowToggle = groupTvs.length > 1;
    var rowH = 100;
 
+   // The Row (Top/Bottom) column used to only render once a group had 2+
+   // TVs. That made the list table's column count - and so its natural
+   // width - change depending on TV count, and that change was what
+   // dragged the whole button column (+ Add TV / Rename Tab / Delete Tab)
+   // wider along with it. Rendering the column unconditionally keeps the
+   // list's structure, and therefore the whole settings row's layout,
+   // identical no matter how many TVs are in the group.
+   // Removing weightx (previous attempt) didn't make columns hold their
+   // pwidth - it made them collapse to bare content size instead, proving
+   // weightx is required alongside pwidth for a column to actually claim
+   // that space in this table layout, not just optional. Since equal
+   // weightx among these four columns still leaves room for redistribution
+   // to drift, the header/row columns below keep pwidth+weightx (needed for
+   // the inner table to stack rows automatically), but everything outside
+   // this inner table - the list's box, and the three buttons next to it -
+   // is now placed with plain left/top/width/height, the same absolute
+   // positioning already used elsewhere in this file (rename popup,
+   // Setup tab). No table-layout math is involved there at all, so nothing
+   // can make it drift.
    var headerXml = '<tr>' +
-      '<label colspan="1" fill="both" name="Label" pheight="' + rowH + '" weightx="0.5" weighty="0.0" style="' + labelStyle() + '"/>' +
-      '<label colspan="1" fill="both" name="IP Address" pheight="' + rowH + '" weightx="1.0" weighty="0.0" style="' + labelStyle() + '"/>';
-   if (showRowToggle) {
-      headerXml += '<label colspan="1" fill="both" name="Row" pheight="' + rowH + '" weightx="1.0" weighty="0.0" style="font:bold;"/>';
-   }
-   headerXml += '<label colspan="1" fill="both" name="" pheight="' + rowH + '" weightx="0.5" weighty="0.0" style="font:bold;"/></tr>';
+      '<label colspan="1" fill="both" name="Label" pheight="' + rowH + '" pwidth="190" weightx="1.0" weighty="0.0" style="' + labelStyle() + '"/>' +
+      '<label colspan="1" fill="both" name="IP Address" pheight="' + rowH + '" pwidth="190" weightx="1.0" weighty="0.0" style="' + labelStyle() + '"/>' +
+      '<label colspan="1" fill="both" name="Row" pheight="' + rowH + '" pwidth="110" weightx="1.0" weighty="0.0" style="font:bold;"/>' +
+      '<label colspan="1" fill="both" name="" pheight="' + rowH + '" pwidth="90" weightx="1.0" weighty="0.0" style="font:bold;"/></tr>';
 
    var rowsXml = '';
    for (var i = 0; i < groupTvs.length; i++) {
       var tv = groupTvs[i];
       rowsXml += '<tr>' +
-         '<param colspan="1" fill="both" oid="cfg.tv.label" element="' + tv.index + '" pheight="' + rowH + '" minh="' + rowH + '" weightx="0.5" weighty="0.0" style="size:18;" ' +
+         '<param colspan="1" fill="both" oid="cfg.tv.label" element="' + tv.index + '" pheight="' + rowH + '" minh="' + rowH + '" pwidth="190" weightx="1.0" weighty="0.0" style="size:18;" ' +
             'onchange="ogscript.rename(\'tv\' + this.getIndex(), this.getValueAsString());"/>' +
-         '<param colspan="1" fill="both" oid="cfg.tv.ip" element="' + tv.index + '" pheight="' + rowH + '" minh="' + rowH + '" weightx="1.0" weighty="0.0" style="size:18;"/>';
-      if (showRowToggle) {
-         rowsXml += '<button buttontype="push" colspan="1" fill="both" name="' + (tv.row === 'bottom' ? 'Bottom' : 'Top') +
-            '" pheight="' + rowH + '" weightx="1.0" weighty="0.0" style="' + cmdBtnStyle() + '">' +
-            taskTag('toggleTvRow(' + tv.index + ');') + '</button>';
-      }
-      rowsXml += '<button buttontype="push" colspan="1" fill="both" name="-" pheight="' + rowH + '" weightx="0.5" weighty="0.0" style="' + cmdBtnStyle() + '">' +
+         '<param colspan="1" fill="both" oid="cfg.tv.ip" element="' + tv.index + '" pheight="' + rowH + '" minh="' + rowH + '" pwidth="190" weightx="1.0" weighty="0.0" style="size:18;"/>' +
+         '<button buttontype="push" colspan="1" fill="both" name="' + (tv.row === 'bottom' ? 'Bottom' : 'Top') +
+            '" pheight="' + rowH + '" pwidth="110" weightx="1.0" weighty="0.0" style="' + cmdBtnStyle() + '">' +
+            taskTag('toggleTvRow(' + tv.index + ');') + '</button>' +
+         '<button buttontype="push" colspan="1" fill="both" name="-" pheight="' + rowH + '" pwidth="90" weightx="1.0" weighty="0.0" style="' + cmdBtnStyle() + '">' +
             taskTag('removeTv(' + tv.index + ');') + '</button>' +
          '</tr>';
    }
 
-   // The list's own height is its full, un-scaled content height (header +
-   // one fixed-height row per TV). It's placed in a table cell whose
-   // preferred height (168) is fixed at the panel's height, so once the
-   // content outgrows that, "scroll" wraps it in a real scrollable
-   // viewport instead of squeezing rows to fit (which is what virtualheight
-   // scaling was doing before, and why fields kept shrinking).
+   // The list box itself is now absolutely positioned (left/top/width/
+   // height) rather than a weighted table cell, so its size can't be
+   // affected by anything outside it. Its own inner <table> still needs
+   // pwidth+weightx per column (above) purely to lay out Label/IP/Row/-
+   // side by side and stack one <tr> per TV; scroll="vertical" kicks in
+   // once that content (rowH per TV) outgrows the fixed height="168" box.
    var listContentHeight = rowH * (groupTvs.length + 1);
-   var listXml = '<abs colspan="1" fill="both" pheight="168" pwidth="200" rowspan="1" weightx="1.0" weighty="1.0" ' +
-      'width="420" height="' + listContentHeight + '" scroll="vertical">' +
+   var listXml = '<abs left="0" top="0" width="580" height="168" scroll="vertical">' +
       '<table bottom="0" left="0" right="0" top="0">' + headerXml + rowsXml + '</table>' +
       '</abs>';
 
+   var btnH = 56;
+   var btnW = 140;
    var controlsXml =
-      '<table colspan="1" fill="both" pwidth="400" right="0" rowspan="1" weightx="2.0" weighty="1.0">' +
-      '<tr><button buttontype="push" colspan="1" fill="both" name="+ Add TV" pheight="1" pwidth="200" weightx="1.0" weighty="1.0" style="' + cmdBtnStyle() + 'size:normal;">' +
-         taskTag('addTvToGroup(' + jsStr(groupName) + ');') + '</button></tr>' +
-      '<tr><button buttontype="push" colspan="1" fill="both" name="Rename Tab" pheight="1" pwidth="200" weightx="1.0" weighty="1.0" style="' + cmdBtnStyle() + 'size:normal;">' +
-         taskTag('openRenamePopup(' + jsStr(groupName) + ');') + '</button></tr>' +
-      '<tr><button buttontype="push" colspan="1" fill="both" name="Delete Tab" pheight="1" pwidth="200" weightx="1.0" weighty="1.0" style="' + cmdBtnStyle() + 'size:normal;">' +
-         taskTag('deleteGroup(' + jsStr(groupName) + ');') + '</button></tr>' +
-      '</table>';
+      '<button buttontype="push" name="+ Add TV" left="596" top="0" width="' + btnW + '" height="' + btnH + '" style="' + cmdBtnStyle() + 'size:normal;">' +
+         taskTag('addTvToGroup(' + jsStr(groupName) + ');') + '</button>' +
+      '<button buttontype="push" name="Rename Tab" left="596" top="' + btnH + '" width="' + btnW + '" height="' + btnH + '" style="' + cmdBtnStyle() + 'size:normal;">' +
+         taskTag('openRenamePopup(' + jsStr(groupName) + ');') + '</button>' +
+      '<button buttontype="push" name="Delete Tab" left="596" top="' + (btnH * 2) + '" width="' + btnW + '" height="' + btnH + '" style="' + cmdBtnStyle() + 'size:normal;">' +
+         taskTag('deleteGroup(' + jsStr(groupName) + ');') + '</button>';
 
-   var spacerXml = '<label colspan="1" fill="both" name="" pwidth="16" weightx="0.3" weighty="1.0"/>';
-
-   return '<table bottom="0" left="0" right="0" top="0"><tr>' + listXml + controlsXml + spacerXml + '</tr></table>';
+   return listXml + controlsXml;
 }
 
 function buildGroupSettingsXml(groupName, groupTvs) {
-   return '<abs anchor="west" id="' + settingsIdFor(groupName) + '" name="Settings" style="' + pageBgStyle() + '" width="746" height="168" virtualwidth="746" virtualheight="168">' +
+   return '<abs anchor="west" id="' + settingsIdFor(groupName) + '" name="Settings" style="' + pageBgStyle() + '" width="752" height="168" virtualwidth="752" virtualheight="168">' +
       buildGroupSettingsInnerXml(groupName, groupTvs) +
       '</abs>';
 }
@@ -574,7 +680,7 @@ function buildGroupMainInnerXml(groupName, tvs) {
    var masterXml =
       '<table colspan="1" fill="both" pheight="170" pwidth="267" right="0" rowspan="1" weightx="0.25" weighty="1.0">' +
          '<tr>' +
-            '<button buttontype="push" colspan="2" fill="both" name="' + escapeXmlAttr(groupName + ' All') + '" pheight="85" rowspan="1" weightx="1.0" weighty="1.0" style="' + cmdBtnStyle() + '">' +
+            '<button id="' + groupAllBtnId(groupName) + '" buttontype="push" colspan="2" fill="both" name="' + escapeXmlAttr(groupName + ' All') + '" pheight="85" rowspan="1" weightx="1.0" weighty="1.0" style="' + (groupAllOn(groupName) ? accentBtnStyle() : cmdBtnStyle()) + '">' +
                taskTag('toggleGroup(' + jsStr(groupName) + ');') + '</button>' +
          '</tr>' +
          '<tr>' +
@@ -625,7 +731,7 @@ function updateGroupTab(groupName) {
 function buildAllPageXml(tvs, groups) {
    var xml = '<abs name="All" style="' + pageBgStyle() + '" virtualheight="170" virtualwidth="1302"><table bottom="0" left="0" right="0" top="0"><tr>';
    for (var i = 0; i < groups.length; i++) {
-      xml += '<button buttontype="push" colspan="2" fill="both" name="' + escapeXmlAttr('All ' + groups[i]) + '" pheight="85" weightx="1.0" weighty="1.0" style="' + cmdBtnStyle() + '">' +
+      xml += '<button id="' + allPageGroupBtnId(groups[i]) + '" buttontype="push" colspan="2" fill="both" name="' + escapeXmlAttr('All ' + groups[i]) + '" pheight="85" weightx="1.0" weighty="1.0" style="' + (groupAllOn(groups[i]) ? accentBtnStyle() : cmdBtnStyle()) + '">' +
          taskTag('toggleGroup(' + jsStr(groups[i]) + ');') + '</button>';
    }
    xml += '<button buttontype="push" colspan="2" fill="both" name="Toggle All" pheight="85" weightx="1.0" weighty="1.0" style="' + cmdBtnStyle() + '">' +
@@ -637,53 +743,58 @@ function buildAllPageXml(tvs, groups) {
       xml += '<button buttontype="push" fill="both" name="' + escapeXmlAttr(groups[j] + ' Off') + '" pheight="85" weightx="1.0" weighty="1.0" style="' + cmdBtnStyle() + '">' +
          taskTag('powerOffGroup(' + jsStr(groups[j]) + ');') + '</button>';
    }
-   xml += '<button buttontype="push" fill="both" name="All On" pheight="85" weightx="1.0" weighty="1.0" style="' + cmdBtnStyle() + '">' +
+   xml += '<button id="allOnBtn" buttontype="push" fill="both" name="All On" pheight="85" weightx="1.0" weighty="1.0" style="' + (allTvsOn() ? accentBtnStyle() : cmdBtnStyle()) + '">' +
       taskTag('powerOnAll();') + '</button>';
-   xml += '<button buttontype="push" fill="both" name="All Off" pheight="85" weightx="1.0" weighty="1.0" style="' + cmdBtnStyle() + '">' +
+   xml += '<button id="allOffBtn" buttontype="push" fill="both" name="All Off" pheight="85" weightx="1.0" weighty="1.0" style="' + (allTvsOff() ? accentBtnStyle() : cmdBtnStyle()) + '">' +
       taskTag('powerOffAll();') + '</button>';
    xml += '</tr></table></abs>';
    return xml;
 }
 
-function buildNewTabPageXml() {
-   return '<abs name="+" style="' + pageBgStyle() + '" virtualheight="170" virtualwidth="1302">' +
-      '<label left="20" top="40" width="300" height="30" name="New tab name:" style="' + labelStyle() + '"/>' +
-      '<param oid="cfg.newtab.name" left="20" top="76" width="260" height="34" minh="34" style="size:normal;"/>' +
-      '<button buttontype="push" name="Create Tab" left="300" top="76" width="160" height="34" style="' + accentBtnStyle() + '">' +
-      taskTag('createTab();') + '</button>' +
-      '</abs>';
-}
-
-function buildThemeFieldXml(labelText, oid) {
-   return '<table colspan="1" fill="both" pheight="170" pwidth="160" rowspan="1" weightx="1.0" weighty="1.0">' +
-      '<tr><label colspan="1" fill="both" name="' + escapeXmlAttr(labelText) + '" pheight="30" weightx="1.0" weighty="0.0" style="' + labelStyle() + '"/></tr>' +
-      '<tr><param colspan="1" fill="both" oid="' + oid + '" element="0" pheight="40" minh="40" weightx="1.0" weighty="0.0" style="size:normal;"/></tr>' +
-      '</table>';
+// Absolutely positioned (left/top/width), not a weighted table - same
+// reasoning as the group Settings drawer: fixed pixel placement can't drift
+// the way table+weightx cells did, and adding the "create tab" row here
+// only needs to not collide with the existing theme fields, not coexist in
+// their table's column/weight math.
+function buildThemeFieldXml(labelText, oid, x, y, w) {
+   return '<label left="' + x + '" top="' + y + '" width="' + w + '" height="20" name="' + escapeXmlAttr(labelText) + '" style="' + labelStyle() + '"/>' +
+      '<param oid="' + oid + '" element="0" left="' + x + '" top="' + (y + 22) + '" width="' + w + '" height="34" minh="34" style="size:normal;" ' +
+         'onchange="rebuildFromConfig(); stayOnSetupTab();"/>';
 }
 
 function buildSetupPageXml() {
-   var fieldsXml =
-      buildThemeFieldXml('Background', 'cfg.theme.bg') +
-      buildThemeFieldXml('Card Bg', 'cfg.theme.card') +
-      buildThemeFieldXml('Button', 'cfg.theme.button') +
-      buildThemeFieldXml('Text', 'cfg.theme.text') +
-      buildThemeFieldXml('Accent', 'cfg.theme.accent') +
-      buildThemeFieldXml('Accent Text', 'cfg.theme.accenttext');
+   var themeFields = [
+      ['Background', 'cfg.theme.bg'],
+      ['Card Bg', 'cfg.theme.card'],
+      ['Button', 'cfg.theme.button'],
+      ['Button Text', 'cfg.theme.buttontext'],
+      ['Text', 'cfg.theme.text'],
+      ['Accent', 'cfg.theme.accent'],
+      ['Accent Text', 'cfg.theme.accenttext']
+   ];
+   var fieldW = 140;
+   var step = 148;
+   var fieldsXml = '';
+   for (var i = 0; i < themeFields.length; i++) {
+      fieldsXml += buildThemeFieldXml(themeFields[i][0], themeFields[i][1], i * step, 0, fieldW);
+   }
+   fieldsXml += buildThemeFieldXml('Logo URL', 'cfg.theme.logo', themeFields.length * step, 0, fieldW);
 
-   var logoXml =
-      '<table colspan="1" fill="both" pheight="170" pwidth="260" rowspan="1" weightx="1.5" weighty="1.0">' +
-      '<tr><label colspan="1" fill="both" name="Logo URL" pheight="30" weightx="1.0" weighty="0.0" style="' + labelStyle() + '"/></tr>' +
-      '<tr><param colspan="1" fill="both" oid="cfg.theme.logo" element="0" pheight="40" minh="40" weightx="1.0" weighty="0.0" style="size:normal;"/></tr>' +
-      '</table>';
+   // "+" used to be its own tab; folding tab creation in here removes that
+   // extra tab and keeps every setup-style control (theme + new tabs) in
+   // one place.
+   var newTabXml =
+      '<label left="0" top="70" width="260" height="18" name="New Tab Name" style="' + labelStyle() + '"/>' +
+      '<param oid="cfg.newtab.name" left="0" top="90" width="260" height="34" minh="34" style="size:normal;"/>' +
+      '<button buttontype="push" name="Create Tab" left="270" top="90" width="140" height="34" style="' + accentBtnStyle() + '">' +
+      taskTag('createTab();') + '</button>';
 
    var applyXml =
-      '<table colspan="1" fill="both" pheight="170" pwidth="180" right="0" rowspan="1" weightx="0.0" weighty="1.0">' +
-      '<tr><button buttontype="push" colspan="1" fill="both" name="Apply Theme" pheight="1" weightx="1.0" weighty="1.0" style="' + accentBtnStyle() + '">' +
-      taskTag('rebuildFromConfig();') + '</button></tr>' +
-      '</table>';
+      '<button buttontype="push" name="Apply Theme" left="' + ((themeFields.length + 1) * step) + '" top="22" width="110" height="34" style="' + accentBtnStyle() + '">' +
+      taskTag('rebuildFromConfig(); stayOnSetupTab();') + '</button>';
 
-   return '<abs name="Setup" style="' + pageBgStyle() + '" virtualheight="170" virtualwidth="1302">' +
-      '<table bottom="0" left="0" right="0" top="0"><tr>' + fieldsXml + logoXml + applyXml + '</tr></table>' +
+   return '<abs id="setupTab" name="Setup" style="' + pageBgStyle() + '" virtualheight="170" virtualwidth="1302">' +
+      fieldsXml + newTabXml + applyXml +
       '</abs>';
 }
 
@@ -703,7 +814,6 @@ function rebuildFromConfig(reopenGroup) {
    for (var i = 0; i < groups.length; i++) {
       xml += buildGroupPageXml(groups[i], tvs);
    }
-   xml += buildNewTabPageXml();
    xml += buildSetupPageXml();
    ogscript.setXML('mainTabs', xml);
    ogscript.setXML('renamePopupInner', buildRenamePopupInnerXml());
@@ -719,10 +829,10 @@ function rebuildFromConfig(reopenGroup) {
       ]]></api>
         <ogscript handles="onload">rebuildFromConfig(); ogscript.installTimer('tvPowerPoll', true, 8000, 10000, pollAllTvs);</ogscript>
     </meta>
-    <tab style="bg#161D2B;fg#FFFFFF;" bottom="0" id="mainTabs" left="0" right="0" tabposition="south" top="0"/>
-    <abs id="listenerHost" left="0" top="0" width="1" height="1" visible="false"/>
-    <abs id="logoHost" left="1228" top="174" width="64" height="26" visible="true"/>
-    <popup id="renamePopup" name="Rename" left="400" top="10" width="1" height="1" visible="false">
-        <abs id="renamePopupInner" width="300" height="46"/>
+    <tab bottom="0" id="mainTabs" left="0" right="0" style="bg#000000;fg#F2F2F2;" tabposition="south" top="0"/>
+    <abs height="1" id="listenerHost" left="0" top="0" visible="false" width="1"/>
+    <abs height="26" id="logoHost" left="1228" top="174" visible="true" width="64"/>
+    <popup height="1" id="renamePopup" left="400" name="Rename" top="10" visible="false" width="1">
+        <abs height="46" id="renamePopupInner" width="300"/>
     </popup>
 </abs>
