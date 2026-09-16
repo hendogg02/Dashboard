@@ -395,21 +395,31 @@ function hdmiBtnId(idx, hdmiNum) {
    return 'tv' + idx + '_hdmi' + hdmiNum;
 }
 
-function groupAllBtnId(groupName) {
-   return 'groupAll_' + sanitizeId(groupName);
+function groupOnBtnId(groupName) {
+   return 'groupOn_' + sanitizeId(groupName);
 }
 
-function allPageGroupBtnId(groupName) {
-   return 'allPageGroup_' + sanitizeId(groupName);
+function groupOffBtnId(groupName) {
+   return 'groupOff_' + sanitizeId(groupName);
+}
+
+function allPageGroupOnBtnId(groupName) {
+   return 'allPageGroupOn_' + sanitizeId(groupName);
+}
+
+function allPageGroupOffBtnId(groupName) {
+   return 'allPageGroupOff_' + sanitizeId(groupName);
 }
 
 // --- Aggregate power state: applyTvNotify only ever knows one TV's own
-//     POWR reply, but the "All <Group>"/"<Group> All"/"All On"/"All Off"
+//     POWR reply, but the "<Group> On"/"<Group> Off"/"All On"/"All Off"
 //     buttons need to know every TV's state at once to show whether a
-//     whole group (or everything) is on. Each TV's last-known state is
-//     kept in a persisted map (survives tab rebuilds the same way
+//     whole group (or everything) is on or off. Each TV's last-known state
+//     is kept in a persisted map (survives tab rebuilds the same way
 //     ogscript.putObject/getObject is used elsewhere in this file) so the
-//     aggregate can be recomputed on every single-TV update. ---
+//     aggregate can be recomputed on every single-TV update. The toggle
+//     buttons ("<Group> All" / "All <Group>") stay plain command buttons -
+//     only the discrete On/Off buttons act as status indicators. ---
 
 function getTvPowerMap() {
    return ogscript.getObject('tvPowerState') || {};
@@ -431,6 +441,15 @@ function groupAllOn(groupName) {
    if (tvs.length === 0) return false;
    for (var i = 0; i < tvs.length; i++) {
       if (getTvPower(tvs[i].index) !== true) return false;
+   }
+   return true;
+}
+
+function groupAllOff(groupName) {
+   var tvs = tvsInGroup(groupName);
+   if (tvs.length === 0) return false;
+   for (var i = 0; i < tvs.length; i++) {
+      if (getTvPower(tvs[i].index) !== false) return false;
    }
    return true;
 }
@@ -457,9 +476,12 @@ function refreshMasterButtons() {
    var tvs = getConfiguredTvs();
    var groups = getGroups(tvs);
    for (var i = 0; i < groups.length; i++) {
-      var style = groupAllOn(groups[i]) ? accentBtnStyle() : cmdBtnStyle();
-      ogscript.setStyle(groupAllBtnId(groups[i]), style);
-      ogscript.setStyle(allPageGroupBtnId(groups[i]), style);
+      var onStyle = groupAllOn(groups[i]) ? accentBtnStyle() : cmdBtnStyle();
+      var offStyle = groupAllOff(groups[i]) ? accentBtnStyle() : cmdBtnStyle();
+      ogscript.setStyle(groupOnBtnId(groups[i]), onStyle);
+      ogscript.setStyle(groupOffBtnId(groups[i]), offStyle);
+      ogscript.setStyle(allPageGroupOnBtnId(groups[i]), onStyle);
+      ogscript.setStyle(allPageGroupOffBtnId(groups[i]), offStyle);
    }
    ogscript.setStyle('allOnBtn', allTvsOn() ? accentBtnStyle() : cmdBtnStyle());
    ogscript.setStyle('allOffBtn', allTvsOff() ? accentBtnStyle() : cmdBtnStyle());
@@ -680,13 +702,13 @@ function buildGroupMainInnerXml(groupName, tvs) {
    var masterXml =
       '<table colspan="1" fill="both" pheight="170" pwidth="267" right="0" rowspan="1" weightx="0.25" weighty="1.0">' +
          '<tr>' +
-            '<button id="' + groupAllBtnId(groupName) + '" buttontype="push" colspan="2" fill="both" name="' + escapeXmlAttr(groupName + ' All') + '" pheight="85" rowspan="1" weightx="1.0" weighty="1.0" style="' + (groupAllOn(groupName) ? accentBtnStyle() : cmdBtnStyle()) + '">' +
+            '<button buttontype="push" colspan="2" fill="both" name="' + escapeXmlAttr(groupName + ' All') + '" pheight="85" rowspan="1" weightx="1.0" weighty="1.0" style="' + cmdBtnStyle() + '">' +
                taskTag('toggleGroup(' + jsStr(groupName) + ');') + '</button>' +
          '</tr>' +
          '<tr>' +
-            '<button buttontype="push" colspan="1" fill="both" name="' + escapeXmlAttr(groupName + ' On') + '" pheight="85" rowspan="1" weightx="1.0" weighty="1.0" style="' + cmdBtnStyle() + '">' +
+            '<button id="' + groupOnBtnId(groupName) + '" buttontype="push" colspan="1" fill="both" name="' + escapeXmlAttr(groupName + ' On') + '" pheight="85" rowspan="1" weightx="1.0" weighty="1.0" style="' + (groupAllOn(groupName) ? accentBtnStyle() : cmdBtnStyle()) + '">' +
                taskTag('powerOnGroup(' + jsStr(groupName) + ');') + '</button>' +
-            '<button buttontype="push" colspan="1" fill="both" name="' + escapeXmlAttr(groupName + ' Off') + '" pheight="85" rowspan="1" weightx="1.0" weighty="1.0" style="' + cmdBtnStyle() + '">' +
+            '<button id="' + groupOffBtnId(groupName) + '" buttontype="push" colspan="1" fill="both" name="' + escapeXmlAttr(groupName + ' Off') + '" pheight="85" rowspan="1" weightx="1.0" weighty="1.0" style="' + (groupAllOff(groupName) ? accentBtnStyle() : cmdBtnStyle()) + '">' +
                taskTag('powerOffGroup(' + jsStr(groupName) + ');') + '</button>' +
          '</tr>' +
       '</table>';
@@ -731,16 +753,16 @@ function updateGroupTab(groupName) {
 function buildAllPageXml(tvs, groups) {
    var xml = '<abs name="All" style="' + pageBgStyle() + '" virtualheight="170" virtualwidth="1302"><table bottom="0" left="0" right="0" top="0"><tr>';
    for (var i = 0; i < groups.length; i++) {
-      xml += '<button id="' + allPageGroupBtnId(groups[i]) + '" buttontype="push" colspan="2" fill="both" name="' + escapeXmlAttr('All ' + groups[i]) + '" pheight="85" weightx="1.0" weighty="1.0" style="' + (groupAllOn(groups[i]) ? accentBtnStyle() : cmdBtnStyle()) + '">' +
+      xml += '<button buttontype="push" colspan="2" fill="both" name="' + escapeXmlAttr('All ' + groups[i]) + '" pheight="85" weightx="1.0" weighty="1.0" style="' + cmdBtnStyle() + '">' +
          taskTag('toggleGroup(' + jsStr(groups[i]) + ');') + '</button>';
    }
    xml += '<button buttontype="push" colspan="2" fill="both" name="Toggle All" pheight="85" weightx="1.0" weighty="1.0" style="' + cmdBtnStyle() + '">' +
       taskTag('toggleAll();') + '</button>';
    xml += '</tr><tr>';
    for (var j = 0; j < groups.length; j++) {
-      xml += '<button buttontype="push" fill="both" name="' + escapeXmlAttr(groups[j] + ' On') + '" pheight="85" weightx="1.0" weighty="1.0" style="' + cmdBtnStyle() + '">' +
+      xml += '<button id="' + allPageGroupOnBtnId(groups[j]) + '" buttontype="push" fill="both" name="' + escapeXmlAttr(groups[j] + ' On') + '" pheight="85" weightx="1.0" weighty="1.0" style="' + (groupAllOn(groups[j]) ? accentBtnStyle() : cmdBtnStyle()) + '">' +
          taskTag('powerOnGroup(' + jsStr(groups[j]) + ');') + '</button>';
-      xml += '<button buttontype="push" fill="both" name="' + escapeXmlAttr(groups[j] + ' Off') + '" pheight="85" weightx="1.0" weighty="1.0" style="' + cmdBtnStyle() + '">' +
+      xml += '<button id="' + allPageGroupOffBtnId(groups[j]) + '" buttontype="push" fill="both" name="' + escapeXmlAttr(groups[j] + ' Off') + '" pheight="85" weightx="1.0" weighty="1.0" style="' + (groupAllOff(groups[j]) ? accentBtnStyle() : cmdBtnStyle()) + '">' +
          taskTag('powerOffGroup(' + jsStr(groups[j]) + ');') + '</button>';
    }
    xml += '<button id="allOnBtn" buttontype="push" fill="both" name="All On" pheight="85" weightx="1.0" weighty="1.0" style="' + (allTvsOn() ? accentBtnStyle() : cmdBtnStyle()) + '">' +
